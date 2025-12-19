@@ -79,4 +79,34 @@ if (isset($_POST["save_membre"])) {
     }
 }
 
+else if (isset($_POST['save_category'])) {
+    $name = mysqli_real_escape_string($con, $_POST['name']);
+
+    $string = preg_replace('/[^A-Za-z0-9\-]/', '-', $_POST['slug']);
+    $final_string = preg_replace('/-+/', '-', $string);
+    $slug = $final_string;
+
+    $description = mysqli_real_escape_string($con, $_POST['description']);
+    $meta_title = mysqli_real_escape_string($con, $_POST['meta_title']);
+    $meta_description = mysqli_real_escape_string($con, $_POST['meta_description']);
+    $meta_keywords = mysqli_real_escape_string($con, $_POST['meta_keywords']);
+    $navbar_status = mysqli_real_escape_string($con, $_POST['navbar_status'] == true ? '1' : '0');
+    $status = mysqli_real_escape_string($con, $_POST['status'] == true ? '1' : '0');
+
+    $category_query = "INSERT INTO categories (name,slug,description,meta_title,meta_description,meta_keywords,navbar_status,status) VALUES ('$name','$slug','$description','$meta_title','$meta_description','$meta_keywords','$navbar_status','$status')";
+    $category_query_run = mysqli_query($con, $category_query);
+
+    if ($category_query_run) {
+        $_SESSION['toastr'] = ['type' => 'error', 'message' => 'Format d\'image non valide.'];
+        header("Location: add-categorie.php");
+        exit;
+    } else {
+        $_SESSION['toastr'] = ['type' => 'error', 'message' => 'Format d\'image non valide.'];
+        header("Location: add-categorie.php");
+        exit;
+    }
+}
+
+
+
 ?>
