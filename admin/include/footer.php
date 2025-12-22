@@ -35,6 +35,10 @@
     <script src="assets/vendor/flot/jquery.flot.pie.js"></script>
     <script src="assets/vendor/flot/jquery.flot.resize.js"></script>
     <script src="assets/vendor/flot-spline/jquery.flot.spline.min.js"></script>
+
+    <!-- Datatable -->
+    <script src="assets/vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="assets/js/plugins-init/datatables.init.js"></script>
 	
 	<!-- Chart sparkline plugin files -->
     <script src="assets/vendor/jquery-sparkline/jquery.sparkline.min.js"></script>
@@ -51,7 +55,6 @@
     <script src="assets/vendor/svganimation/vivus.min.js"></script>
     <script src="assets/vendor/svganimation/svg.animation.js"></script>
     <script src="assets/js/styleSwitcher.js"></script>
-	
 	
 </body>
 </html>

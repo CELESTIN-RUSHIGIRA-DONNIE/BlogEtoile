@@ -107,6 +107,63 @@ else if (isset($_POST['save_category'])) {
     }
 }
 
+else if (isset($_POST['save_post'])) {
+    $user_id = 1;
+    $category_id = $_POST['category_id'];
+    $name = $_POST['name'];
+    $string = preg_replace('/[^A-Za-z0-9\-]/', '-', $_POST['slug']);
+    $final_string = preg_replace('/-+/', '-', $string);
+    $slug = $final_string;
+    $description = $_POST['description'];
+    $status = $_POST['status'] == true ? '1' : '0';
+    $navbar_status = $_POST['navbar_status'] == true ? '1' : '0';
+
+
+    $image     = $_FILES['photo']['name'];
+    $image_tmp = $_FILES['photo']['tmp_name'];
+    $error     = $_FILES['photo']['error'];
+
+    // Vérifier l’erreur d’upload
+    if ($error !== UPLOAD_ERR_OK) {
+        $_SESSION['toastr'] = ['type' => 'error', 'message' => 'Erreur lors de l\'upload de l\'image (code : '.$error.').'];
+        header("Location: add-post.php");
+        exit;
+    }
+
+    // Extension autorisée
+    $allowed_extensions = ['jpg', 'jpeg', 'png', 'gif'];
+    $file_extension = strtolower(pathinfo($image, PATHINFO_EXTENSION));
+
+    if (!in_array($file_extension, $allowed_extensions)) {
+        $_SESSION['toastr'] = ['type' => 'error', 'message' => 'Format d\'image non valide.'];
+        header("Location: add-post.php");
+        exit;
+    }
+
+    // Dossier de destination
+    $upload_dir = 'uploads/post/';
+
+    if (!is_dir($upload_dir)) {
+        mkdir($upload_dir, 0777, true);
+    }
+
+    // Nouveau nom unique pour éviter les collisions
+    $new_name = uniqid('img_').'.'.$file_extension;
+    $upload_path = $upload_dir.$new_name;
+
+    $query = "INSERT INTO posts (category_id,titre,slug,content,navbar_status,status,image,user_id) VALUES('$category_id','$name','$slug','$description','$navbar_status','$status', '$new_name', '$user_id')";
+    $query_run = mysqli_query($con, $query);
+
+    // Si l’INSERT est OK, on déplace le fichier
+    if (move_uploaded_file($image_tmp, $upload_path)) {
+        $_SESSION['toastr'] = ['type' => 'success', 'message' => 'enregistré reussi avec succès.'];
+    } else {
+        $_SESSION['toastr'] = ['type' => 'error', 'message' => 'Enregistrement OK, mais échec de l\'upload de l\'image.'];
+    }
+    header("Location: add-post.php");
+    exit;
+}
+
 
 
 ?>

@@ -1,5 +1,6 @@
 <?php
     session_start();
+    include('conf/db.php');
 ?>
 
 <!DOCTYPE html>
@@ -17,6 +18,10 @@
     <link rel="stylesheet" href="assets/vendor/toastr/css/toastr.min.css">
 	
     <link href="assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+
+
+    <!-- Datatable -->
+    <link href="assets/vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
 
 </head>
@@ -185,8 +190,8 @@
 							<span class="nav-text">Posts</span>
 						</a>
                         <ul aria-expanded="false">
-                            <li><a href="#">Categorie</a></li>
-                            <li><a href="#">Posts</a></li>
+                            <li><a href="add-categorie.php">Categorie</a></li>
+                            <li><a href="add-post.php">Posts</a></li>
                         </ul>
                     </li>
 
