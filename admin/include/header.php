@@ -182,7 +182,7 @@
 						</a>
                         <ul aria-expanded="false">
                             <li><a href="add-members.php">AJouter Membre</a></li>
-                            <li><a href="#">Liste Membres</a></li>
+                            <li><a href="list-members.php">Liste Membres</a></li>
                         </ul>
                     </li>
 					<li><a class="has-arrow" href="javascript:void()" aria-expanded="false">

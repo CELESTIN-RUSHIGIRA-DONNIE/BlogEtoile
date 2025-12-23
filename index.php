@@ -86,9 +86,9 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0">
-                        <a href="index.html" class="nav-item nav-link active">Acceuil</a>
-                        <a href="services.html" class="nav-item nav-link">Services</a>
-                        <a href="packages.html" class="nav-item nav-link">Historique</a>
+                        <a href="index.php" class="nav-item nav-link active">Acceuil</a>
+                        <a href="post.php" class="nav-item nav-link">Posts</a>
+                        <a href="historique.php" class="nav-item nav-link">Historique</a>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Plus</a>
                             <div class="dropdown-menu m-0">
