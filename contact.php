@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Travela - Tourism Website Template</title>
+    <title>Contact - Etoile de Louange</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -97,7 +97,7 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto py-0">
                     <a href="index.php" class="nav-item nav-link">Acceuil</a>
-                    <a href="post.php" class="nav-item nav-link active">Posts</a>
+                    <a href="post.php" class="nav-item nav-link">Posts</a>
                     <a href="historique.php" class="nav-item nav-link">Historique</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Plus</a>
@@ -111,7 +111,7 @@
                             <a href="404.html" class="dropdown-item">404 Page</a>
                         </div>
                     </div>
-                    <a href="contact.php" class="nav-item nav-link">Contact</a>
+                    <a href="contact.html" class="nav-item nav-link active">Contact</a>
                 </div>
             </div>
         </nav>
@@ -120,82 +120,85 @@
     <!-- Header Start -->
     <div class="container-fluid bg-breadcrumb">
         <div class="container text-center py-5" style="max-width: 900px;">
-            <h4 class="text-white display-3 mb-4">Detail sur Le Post</h4>
+            <h4 class="text-white display-3 mb-4"><i class="fa fa-envelope"></i>  Contactez-nous !</h4>
             <ol class="breadcrumb justify-content-center mb-0">
                 <li class="breadcrumb-item"><a href="index.php">Acceuil</a></li>
-                <li class="breadcrumb-item"><a href="#">Posts</a></li>
-                <li class="breadcrumb-item active text-white">Evenements</li>
+                <li class="breadcrumb-item"><a href="#">Contact</a></li>
+                <li class="breadcrumb-item active text-white">Contactez-nous !</li>
             </ol>
         </div>
     </div>
     <!-- Header End -->
 
-    <!-- Detail sur le post -->
-    <?php
-    if (isset($_GET['id'])) {
-        $post_id = $_GET['id'];
-        $post = "SELECT * FROM posts WHERE id ='$post_id'";
-        $post_run = mysqli_query($con, $post);
-
-        if (mysqli_num_rows($post_run) > 0) {
-            $post_row = mysqli_fetch_array($post_run)
-
-                ?>
-            <div class="container-fluid about">
-                <div class="container py-5">
-                    <div class="row g-5 align-items-center">
-                        <div class="col-lg-5">
-                            <div class="h-100"
-                                style="border: 50px solid; border-color: transparent #13357B transparent #13357B;">
-                                <!-- <img src="img/logo_etoile.jpg" class="img-fluid w-100 h-100" alt=""> -->
-                                <img src="admin/uploads/post/<?= $post_row['image']; ?>" class="img-fluid w-100 h-100" alt="">
+            <!-- Contact Start -->
+        <div class="container-fluid contact bg-light">
+            <div class="container py-5">
+                <div class="mx-auto text-center mb-5" style="max-width: 900px;">
+                    <h5 class="section-title px-3">Contactez-nous</h5>
+                    <h1 class="mb-0">Contactez-nous pour toute demande</h1>
+                </div>
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-4">
+                        <div class="bg-white rounded p-4">
+                            <div class="text-center mb-4">
+                                <i class="fa fa-map-marker-alt fa-3x text-primary"></i>
+                                <h4 class="text-primary"><Address></Address></h4>
+                                <p class="mb-0"> 123 Panzi, BUKAVU, <br> Democratic Republic of Congo</p>
+                            </div>
+                            <div class="text-center mb-4">
+                                <i class="fa fa-phone-alt fa-3x text-primary mb-3"></i>
+                                <h4 class="text-primary">Mobile</h4>
+                                <p class="mb-0">+243 979599841</p>
+                                <p class="mb-0">+243 858567123</p>
+                            </div>
+                           
+                            <div class="text-center">
+                                <i class="fa fa-envelope-open fa-3x text-primary mb-3"></i>
+                                <h4 class="text-primary">Email</h4>
+                                <p class="mb-0">etoiledelouangeuea01@gmail.com</p>
+                                <p class="mb-0">info@example.com</p>
                             </div>
                         </div>
-                        <div class="col-lg-7"
-                            style="background: linear-gradient(rgba(255, 255, 255, .8), rgba(255, 255, 255, .8)), url(img/about-img-1.png);">
-                            <h5 class="section-about-title pe-3">Chorale Etoile de Louange</h5>
-                            <h1 class="mb-4"><?= $post_row['titre']; ?></h1>
-                            <p class="mb-4"><?= $post_row['content']; ?></p>
-                            <p class="mb-4">Portée par un esprit de service et d’adoration, elle fait de chaque mélodie une
-                                offrande à Dieu et une invitation à l’élévation spirituelle.
-                                Notre mission : répandre la paix, l’amour et l’espérance en Christ, édifier les croyants et
-                                toucher les cœurs.</p>
-                            <p class="mb-4">Au-delà du chant, nous vivons la fraternité, la foi et le dévouement. Nous voulons
-                                briller comme des étoiles non pour notre gloire, mais pour celle de Jésus-Christ, la véritable
-                                Lumière du monde.</p>
-                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <h3 class="mb-2">Envoyez-nous un message</h3>
+                        <p class="mb-4">Pour toute information complémentaire nous concernant, n’hésitez pas à nous contacter. Nous serons heureux de vous fournir tous les renseignements dont vous avez besoin.
+                        <form action="traitement.php" method="post">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="text" name="nom" class="form-control border-0" id="name" placeholder="votre nom">
+                                        <label for="name">Votre Nom</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="email" name="email" class="form-control border-0" id="email" placeholder="votre email">
+                                        <label for="email">Votre Email</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <input type="text" name="sujet" class="form-control border-0" id="subject" placeholder="Subject">
+                                        <label for="subject">Sujet</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <textarea class="form-control border-0" name="message" placeholder="Leave a message here" id="message" style="height: 160px"></textarea>
+                                        <label for="message">Message</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-primary w-100 py-3" name="envoyer" type="submit"> <i class="fas fa-paper-plane"></i>   Envoyer Message</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
-            <?php
-
-        }
-    }
-    ?>
-    <!-- Fin Detail sur le post -->
-
-
-
-    <!-- Subscribe Start -->
-    <div class="container-fluid subscribe py-5">
-        <div class="container text-center py-5">
-            <div class="mx-auto text-center" style="max-width: 900px;">
-                <h5 class="subscribe-title px-3">S'abonner</h5>
-                <h2 class="text-white mb-4">Notre bulletin d'information</h2>
-                <p class="text-white mb-5">Si vous désirez rejoindre notre chorale en tant que membre ou partenaire,
-                    écrivez-nous par e-mail pour obtenir plus d’informations sur les modalités. Nous serons heureux de
-                    vous accueillir !
-                </p>
-                <div class="position-relative mx-auto">
-                    <input class="form-control border-primary rounded-pill w-100 py-3 ps-4 pe-5" type="text"
-                        placeholder="votre email">
-                    <button type="button"
-                        class="btn btn-primary rounded-pill position-absolute top-0 end-0 py-2 px-4 mt-2 me-2">s'abonner</button>
-                </div>
-            </div>
         </div>
-    </div>
-    <!-- Subscribe End -->
+        <!-- Contact End -->
 
     <!-- Footer Start -->
     <div class="container-fluid footer py-5">
