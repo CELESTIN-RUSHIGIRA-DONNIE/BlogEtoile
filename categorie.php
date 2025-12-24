@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Post - Etoile de Louange</title>
+    <title>Travela - Tourism Website Template</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -97,12 +97,12 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto py-0">
                     <a href="index.php" class="nav-item nav-link">Acceuil</a>
-                    <a href="post.php" class="nav-item nav-link active">Posts</a>
+                    <a href="post.php" class="nav-item nav-link">Posts</a>
                     <a href="historique.php" class="nav-item nav-link">Historique</a>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Plus</a>
+                        <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Plus</a>
                         <div class="dropdown-menu m-0">
-                            <a href="categorie.php" class="dropdown-item">Categorie</a>
+                            <a href="categorie.php" class="dropdown-item active">Categorie</a>
                             <a href="tour.html" class="dropdown-item">Explore Tour</a>
                             <a href="booking.html" class="dropdown-item">Travel Booking</a>
                             <a href="gallery.html" class="dropdown-item">Our Gallery</a>
@@ -116,106 +116,72 @@
             </div>
         </nav>
     </div>
-
+    <!-- Navbar & Hero End -->
     <!-- Header Start -->
     <div class="container-fluid bg-breadcrumb">
         <div class="container text-center py-5" style="max-width: 900px;">
-            <h3 class="text-white display-3 mb-4">Nos Programmes</h1>
-                <ol class="breadcrumb justify-content-center mb-0">
-                    <li class="breadcrumb-item"><a href="index.php">Acceuil</a></li>
-                    <li class="breadcrumb-item"><a href="#">Posts</a></li>
-                    <li class="breadcrumb-item active text-white">Evenements</li>
-                </ol>
+            <h4 class="text-white display-3 mb-4">Detail sur Le Post</h4>
+            <ol class="breadcrumb justify-content-center mb-0">
+                <li class="breadcrumb-item"><a href="index.php">Acceuil</a></li>
+                <li class="breadcrumb-item"><a href="#">Posts</a></li>
+                <li class="breadcrumb-item active text-white">Evenements</li>
+            </ol>
         </div>
     </div>
     <!-- Header End -->
 
-            <!-- Packages Start -->
-        <div class="container-fluid packages">
-            <div class="container py-5">
-                <div class="mx-auto text-center mb-5" style="max-width: 900px;">
-                    <h5 class="section-title px-3">Programme</h5>
-                    <h1 class="mb-0">Nos programmes</h1>
-                </div>
-                <div class="packages-carousel owl-carousel">
-                                        <?php
-                        $homeCategory = "SELECT * FROM posts WHERE status='1'";
-                        $homeCategory_run = mysqli_query($con, $homeCategory);
-                        if (mysqli_num_rows($homeCategory_run) > 0) 
-                        {
-                            foreach ($homeCategory_run as $homeItems) 
-                            {
-                                ?>
-                                    <div class="packages-item">
-                                        <div class="packages-img">
-                                            <!-- <img src="img/packages-4.jpg" class="img-fluid w-100 rounded-top" alt="Image"> -->
-                                            <img src="admin/uploads/post/<?= $homeItems['image']; ?>" class="img-fluid w-100 rounded-top" alt="Image">
-                                            <div class="packages-info d-flex border border-start-0 border-end-0 position-absolute" style="width: 100%; bottom: 0; left: 0; z-index: 5;">
-                                                <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker-alt me-2"></i>Venice - Italy</small>
-                                                <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt me-2"></i>3 days</small>
-                                                <small class="flex-fill text-center py-2"><i class="fa fa-user me-2"></i>2 Person</small>
-                                            </div>
-                                            <div class="packages-price py-2 px-4">$349.00</div>
-                                        </div>
-                                        <div class="packages-content bg-light">
-                                            <div class="p-4 pb-0">
-                                                <p class="mb-0"><?= $homeItems['titre']; ?></p>
-                                                <div class="mb-3">
-                                                    <small class="fa fa-star text-primary"></small>
-                                                    <small class="fa fa-star text-primary"></small>
-                                                    <small class="fa fa-star text-primary"></small>
-                                                    <small class="fa fa-star text-primary"></small>
-                                                    <small class="fa fa-star text-primary"></small>
-                                                </div>
-                                                <p class="mb-4"><?= $homeItems['content']; ?></p>
-                                            </div>
-                                            <div class="row bg-primary rounded-bottom mx-0">
-                                                <div class="col-6 text-start px-0">
-                                                    <a href="detail-post.php?id=<?= $homeItems['id']; ?>" class="btn-hover btn text-white py-2 px-4">Voir plus</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                <?php
-                            }
-                        }
-                    ?>
-                </div>
-            </div>
-        </div>
-        <!-- Packages End -->
-    <!-- About Start -->
-    <!-- <div class="container-fluid about ">
-        <div class="container py-5">
-            <div class="row g-5 align-items-center">
-                <div class="col-lg-5">
-                    <div class="h-100"
-                        style="border: 50px solid; border-color: transparent #13357B transparent #13357B;">
-                        <img src="img/logo_etoile.jpg" class="img-fluid w-100 h-100" alt="">
+    <!-- Detail sur le post -->
+    <?php
+    if (isset($_GET['id'])) {
+        $post_id = $_GET['id'];
+        $post = "SELECT * FROM posts WHERE id ='$post_id'";
+        $post_run = mysqli_query($con, $post);
+
+        if (mysqli_num_rows($post_run) > 0) {
+            $post_row = mysqli_fetch_array($post_run)
+
+                ?>
+                <div class="container-fluid about">
+                    <div class="container py-5">
+                        <div class="row g-5 align-items-center">
+                            <div class="col-lg-5">
+                                
+                            </div>
+                            <div class="col-lg-7"style="background: linear-gradient(rgba(255, 255, 255, .8), rgba(255, 255, 255, .8)), url(img/about-img-1.png);">
+                                
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-7"
-                    style="background: linear-gradient(rgba(255, 255, 255, .8), rgba(255, 255, 255, .8)), url(img/about-img-1.png);">
-                    <h5 class="section-about-title pe-3">Qui sommes-nous ?</h5>
-                    <h1 class="mb-4">Etoile de Louange UEA</h1>
-                    <p class="mb-4">La Chorale Étoile de Louange est un ministère de chant issu de l’aumônerie
-                        protestante de l’Université Evangelique en Afrique (UEA), située à Bukavu, en République
-                        Démocratique du Congo (RDC). rassemblant des jeunes passionnés par la louange et engagés dans la
-                        mission d’annoncer la Bonne Nouvelle de Jésus-Christ à travers le chant.</p>
-                    <p class="mb-4">Portée par un esprit de service et d’adoration, elle fait de chaque mélodie une
-                        offrande à Dieu et une invitation à l’élévation spirituelle.
-                        Notre mission : répandre la paix, l’amour et l’espérance en Christ, édifier les croyants et
-                        toucher les cœurs.</p>
-                    <p class="mb-4">Au-delà du chant, nous vivons la fraternité, la foi et le dévouement. Nous voulons
-                        briller comme des étoiles non pour notre gloire, mais pour celle de Jésus-Christ, la véritable
-                        Lumière du monde.</p>
-                    <a class="btn btn-primary rounded-pill py-3 px-5 mt-2" href="">Lire plus</a>
+            <?php
+
+        }
+    }
+    ?>
+    <!-- Fin Detail sur le post -->
+
+
+
+    <!-- Subscribe Start -->
+    <div class="container-fluid subscribe py-5">
+        <div class="container text-center py-5">
+            <div class="mx-auto text-center" style="max-width: 900px;">
+                <h5 class="subscribe-title px-3">S'abonner</h5>
+                <h2 class="text-white mb-4">Notre bulletin d'information</h2>
+                <p class="text-white mb-5">Si vous désirez rejoindre notre chorale en tant que membre ou partenaire,
+                    écrivez-nous par e-mail pour obtenir plus d’informations sur les modalités. Nous serons heureux de
+                    vous accueillir !
+                </p>
+                <div class="position-relative mx-auto">
+                    <input class="form-control border-primary rounded-pill w-100 py-3 ps-4 pe-5" type="text"
+                        placeholder="votre email">
+                    <button type="button"
+                        class="btn btn-primary rounded-pill position-absolute top-0 end-0 py-2 px-4 mt-2 me-2">s'abonner</button>
                 </div>
             </div>
         </div>
-    </div> -->
-    <!-- About End -->
-
+    </div>
+    <!-- Subscribe End -->
 
     <!-- Footer Start -->
     <div class="container-fluid footer py-5">

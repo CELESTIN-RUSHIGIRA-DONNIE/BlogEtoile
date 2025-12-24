@@ -1,4 +1,5 @@
 <?php
+include 'inc/config.php';
 
 // Charger les classes PHPMailer
 use PHPMailer\PHPMailer\PHPMailer;
@@ -16,6 +17,17 @@ if (isset($_POST['envoyer'])) {
     $email   = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
     $sujet   = htmlspecialchars(trim($_POST['sujet']));
     $message = htmlspecialchars(trim($_POST['message']));
+
+    // Insertion avec requête préparée
+    $stmt = $con->prepare("INSERT INTO messages (nom, email, sujet, message) VALUES (?, ?, ?, ?)");
+    $stmt->bind_param("ssss", $nom, $email, $sujet, $message);
+    $stmt->execute();
+
+    // Récupérer l'id pour lier plus tard la réponse, si besoin
+    $id_message = $stmt->insert_id;
+
+    $stmt->close();
+    $con->close();
 
     // 2. Préparation de PHPMailer
     $mail = new PHPMailer(true);
@@ -51,7 +63,8 @@ if (isset($_POST['envoyer'])) {
 
         // 5. Envoi
         $mail->send();
-        echo "Merci, votre message a été envoyé.";
+        $_SESSION['toastr'] = ['type' => 'success', 'message' => 'Message envoyé avec succès.'];
+        header("Location: contact.php");
     } catch (Exception $e) {
         echo "Erreur lors de l'envoi du message : {$mail->ErrorInfo}";
     }
