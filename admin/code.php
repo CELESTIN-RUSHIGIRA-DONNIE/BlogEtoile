@@ -164,6 +164,49 @@ else if (isset($_POST['save_post'])) {
     exit;
 }
 
+else if(isset($_POST['save_file'])) {
+    $nom_fichier = mysqli_real_escape_string($con, $_POST['nom_fichier']);
+    $type = mysqli_real_escape_string($con, $_POST['type']);
+    $statut = mysqli_real_escape_string($con, $_POST['statut']);
+    $description = mysqli_real_escape_string($con, $_POST['description']);
+
+    $fichier     = $_FILES['fichier']['name'];
+    $fichier_tmp = $_FILES['fichier']['tmp_name'];
+    $error       = $_FILES['fichier']['error'];
+
+    // Vérifier l’erreur d’upload
+    if ($error !== UPLOAD_ERR_OK) {
+        $_SESSION['toastr'] = ['type' => 'error', 'message' => 'Erreur lors de l\'upload du fichier (code : '.$error.').'];
+        header("Location: upload.php");
+        exit;
+    }
+
+    // Dossier de destination
+    $upload_dir = 'uploads/' . $_POST['type'] . '/';
+
+    if (!is_dir($upload_dir)) {
+        mkdir($upload_dir, 0777, true);
+    }
+
+    // Nouveau nom unique pour éviter les collisions
+    $new_name = uniqid('file_').'_'.basename($fichier);
+    $upload_path = $upload_dir.$new_name;
+
+    $query = "INSERT INTO fichiers (nom_fichier, nom_original, type, description, date_upload, chemin, statut) 
+    VALUES (?, ?, ?, ?, NOW(), ?, ?)";
+    $stmt = mysqli_prepare($con, $query);
+    mysqli_stmt_bind_param($stmt, 'ssssss', $new_name, $fichier, $type, $description, $upload_path, $statut);
+    mysqli_stmt_execute($stmt);
+
+    // Si l’INSERT est OK, on déplace le fichier
+    if (move_uploaded_file($fichier_tmp, $upload_path)) {
+        $_SESSION['toastr'] = ['type' => 'success', 'message' => 'Fichier enregistré avec succès.'];
+    } else {
+        $_SESSION['toastr'] = ['type' => 'error', 'message' => 'Enregistrement OK, mais échec de l\'upload du fichier.'];
+    }
+    header("Location: upload.php");
+    exit;
+}
 
 
 ?>

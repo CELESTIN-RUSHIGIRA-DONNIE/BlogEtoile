@@ -24,10 +24,24 @@ $pdf->Rect(0, 46, 86, 8, 'F');
 
 // --------- TEXTES FIXES (ENTÊTES) ---------
 
+// LOGO GAUCHE
+$logoGauche = 'assets/images/lg-et.jpg'; // adapte le chemin
+if (is_file($logoGauche)) {
+    // x = 3mm, y = 2mm, largeur = 10mm
+    $pdf->Image($logoGauche, 3, 2, 10);
+}
+
+// LOGO DROITE
+$logoDroite = 'assets/images/aumopro.jpg'; // adapte le chemin
+if (is_file($logoDroite)) {
+    // 86 - 3 - 10 = 73mm pour coller à droite
+    $pdf->Image($logoDroite, 73, 4, 10);
+}
+
 // Nom association dans le bandeau
 $pdf->SetTextColor(255, 255, 255);
 $pdf->SetFont('Times', 'B', 12);
-$pdf->SetXY(2, 2);
+$pdf->SetXY(2, 3);
 $pdf->Cell(0, 4, utf8_decode('ÉTOILE DE LOUANGE UEA'), 0, 1, 'C');
 
 // Pays
@@ -115,15 +129,15 @@ $pdf->SetTextColor(255, 255, 255);
 $pdf->SetFont('Arial', '', 7);
 
 // Numéro de carte à gauche
-$pdf->SetXY(2, 47);
+$pdf->SetXY(2, 50);
 $pdf->Cell(40, 4, 'N° : '.$list['id'], 0, 0, 'L');
 
 // Date d'émission au centre
-$pdf->SetXY(0, 47);
+$pdf->SetXY(0, 50);
 $pdf->Cell(86, 4, 'Livré le : '.date('d/m/Y'), 0, 0, 'C');
 
 // Légende "Signature" à droite
-$pdf->SetXY(50, 47);
+$pdf->SetXY(50, 50);
 $pdf->Cell(34, 4, utf8_decode('Signature'), 0, 0, 'R');
 
 // --------- SORTIE PDF ---------
