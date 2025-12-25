@@ -4,7 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Travela - Tourism Website Template</title>
+    <title>Historique - Etoile de Louange</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="admin/assets/images/favicon.png">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -28,6 +29,15 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <style>
+        .underline {
+            height: 4px;
+            width: 80px;
+            background-color: red;
+            margin-bottom: 20px;
+
+        }
+    </style>
 </head>
 
 <body>
@@ -97,8 +107,8 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto py-0">
                     <a href="index.php" class="nav-item nav-link">Acceuil</a>
-                    <a href="post.php" class="nav-item nav-link active">Posts</a>
-                    <a href="historique.php" class="nav-item nav-link">Historique</a>
+                    <a href="post.php" class="nav-item nav-link">Posts</a>
+                    <a href="historique.php" class="nav-item nav-link active">Historique</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Plus</a>
                         <div class="dropdown-menu m-0">
@@ -120,59 +130,65 @@
     <!-- Header Start -->
     <div class="container-fluid bg-breadcrumb">
         <div class="container text-center py-5" style="max-width: 900px;">
-            <h4 class="text-white display-3 mb-4">Detail sur Le Post</h4>
+            <h3 class="text-white display-3 mb-4">Historique</h3>
             <ol class="breadcrumb justify-content-center mb-0">
                 <li class="breadcrumb-item"><a href="index.php">Acceuil</a></li>
-                <li class="breadcrumb-item"><a href="#">Posts</a></li>
-                <li class="breadcrumb-item active text-white">Evenements</li>
+                <li class="breadcrumb-item active text-white">Historique</li>
             </ol>
         </div>
     </div>
     <!-- Header End -->
 
-    <!-- Detail sur le post -->
-    <?php
-    if (isset($_GET['id'])) {
-        $post_id = $_GET['id'];
-        $post = "SELECT * FROM posts WHERE id ='$post_id'";
-        $post_run = mysqli_query($con, $post);
-
-        if (mysqli_num_rows($post_run) > 0) {
-            $post_row = mysqli_fetch_array($post_run)
-
-                ?>
-            <div class="container-fluid about">
-                <div class="container py-5">
-                    <div class="row g-5 align-items-center">
-                        <div class="col-lg-5">
-                            <div class="h-100"
-                                style="border: 50px solid; border-color: transparent #13357B transparent #13357B;">
-                                <!-- <img src="img/logo_etoile.jpg" class="img-fluid w-100 h-100" alt=""> -->
-                                <img src="admin/uploads/post/<?= $post_row['image']; ?>" class="img-fluid w-100 h-100" alt="">
+            <!-- About Start -->
+        <div class="container-fluid about py-5">
+            <div class="container">
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-5">
+                        <div class="h-100">
+                            <video width="100%" poster="img/logo_etoile.jpg" height="auto" controls>
+                                <source src="img/historique.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                    <div class="col-lg-7" style="background: linear-gradient(rgba(255, 255, 255, .8), rgba(255, 255, 255, .8)), url(img/about-img-1.png);">
+                        <h5 class="section-about-title pe-3">Historique</h5>
+                        <div class="underline"></div>
+                        <h1 class="mb-4">La chorale <span class="text-primary">Etoile de Louange</span></h1>
+                        <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, dolorum, doloribus sunt dicta, officia voluptatibus libero necessitatibus natus impedit quam ullam assumenda? Id atque iste consectetur. Commodi odit ab saepe!</p>
+                        <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium quos voluptatem suscipit neque enim, doloribus ipsum rem eos distinctio, dignissimos nisi saepe nulla? Libero numquam perferendis provident placeat molestiae quia?</p>
+                        <div class="row gy-2 gx-4 mb-4">
+                            <div class="col-sm-6">
+                                <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>First Class Flights</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Handpicked Hotels</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>5 Star Accommodations</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Latest Model Vehicles</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>150 Premium City Tours</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>24/7 Service</p>
+                            </div>
+                              <div class="col-sm-6">
+                                <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>24/7 Service</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>150 Premium City Tours</p>
                             </div>
                         </div>
-                        <div class="col-lg-7"
-                            style="background: linear-gradient(rgba(255, 255, 255, .8), rgba(255, 255, 255, .8)), url(img/about-img-1.png);">
-                            <h5 class="section-about-title pe-3">Chorale Etoile de Louange</h5>
-                            <h1 class="mb-4"><?= $post_row['titre']; ?></h1>
-                            <p class="mb-4"><?= $post_row['content']; ?></p>
-                            <p class="mb-4">Portée par un esprit de service et d’adoration, elle fait de chaque mélodie une
-                                offrande à Dieu et une invitation à l’élévation spirituelle.
-                                Notre mission : répandre la paix, l’amour et l’espérance en Christ, édifier les croyants et
-                                toucher les cœurs.</p>
-                            <p class="mb-4">Au-delà du chant, nous vivons la fraternité, la foi et le dévouement. Nous voulons
-                                briller comme des étoiles non pour notre gloire, mais pour celle de Jésus-Christ, la véritable
-                                Lumière du monde.</p>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
-            <?php
-
-        }
-    }
-    ?>
-    <!-- Fin Detail sur le post -->
+        </div>
+        <!-- About End -->
 
 
 
