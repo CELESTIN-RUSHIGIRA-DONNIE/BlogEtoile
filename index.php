@@ -4,7 +4,7 @@
 
     <head>
         <meta charset="utf-8">
-        <title>Travela - Tourism Website Template</title>
+        <title>Acceuil - Etoile de Louange</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="" name="keywords">
         <meta content="" name="description">
@@ -116,7 +116,7 @@
                     </ol>
                     <div class="carousel-inner" role="listbox">
                         <div class="carousel-item active">
-                            <img src="img/car-1.jpg" class="img-fluid" alt="Image">
+                            <img src="img/choir.jpg" class="img-fluid" alt="Image">
                             <div class="carousel-caption">
                                 <div class="p-3" style="max-width: 900px;">
                                     <h1 class="text-capitalize text-white mb-4">chorale Etoile de Louange</h1>
@@ -129,15 +129,16 @@
                             </div>
                         </div>
                         <div class="carousel-item">
-                            <img src="img/car-etoile.png" class="img-fluid" alt="Image">
+                            <img src="img/car-1.jpg" class="img-fluid" alt="Image">
                             <div class="carousel-caption">
-                                <!-- <div class="p-3" style="max-width: 900px;">
-                                    <h2 class="text-capitalize text-white mb-4">Find Your Perfect Tour At Travel</h2>
-                                    
+                                <div class="p-3" style="max-width: 900px;">
+                                    <h1 class="text-capitalize text-white mb-4">chorale Etoile de Louange</h1>
+                                    <p class="mb-5 fs-5">ministère de chant issu de l’aumônerie protestante de l’Université Evangelique en Afrique (UEA), située à Bukavu, en République Démocratique du Congo (RDC). rassemblant des jeunes passionnés par la louange et engagés dans la mission d’annoncer la Bonne Nouvelle de Jésus-Christ à travers le chant.
+                                    </p>
                                     <div class="d-flex align-items-center justify-content-center">
-                                        <a class="btn-hover-bg btn btn-primary rounded-pill text-white py-3 px-5" href="#">Discover Now</a>
+                                        <a class="btn-hover-bg btn btn-primary rounded-pill text-white py-3 px-5" href="#">Lire plus</a>
                                     </div>
-                                </div> -->
+                                </div>
                             </div>
                         </div>
                         <div class="carousel-item">
@@ -270,7 +271,7 @@
         </div>
         <!-- Services End -->
 
-        <!-- Packages Start -->
+        <!-- Membre Start -->
         <div class="container-fluid packages py-5">
             <div class="container py-5">
                 <div class="mx-auto text-center mb-5" style="max-width: 900px;">
@@ -305,7 +306,7 @@
                                             </div>
                                             <div class="row bg-primary rounded-bottom mx-0">
                                                 <div class="col-6 text-start px-0">
-                                                    <a href="#" class="btn-hover btn text-white py-2 px-4">voir plus</a>
+                                                    <a href="detail-membre.php?id=<?= $homeItems['id']; ?>" class="btn-hover btn text-white py-2 px-4">voir plus</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -317,7 +318,7 @@
                 </div>
             </div>
         </div>
-        <!-- Packages End -->
+        <!-- Membres End -->
 
         <!-- Travel Guide Start -->
         <div class="container-fluid bg-light guide py-5">

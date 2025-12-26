@@ -151,11 +151,8 @@
                                             <!-- <img src="img/packages-4.jpg" class="img-fluid w-100 rounded-top" alt="Image"> -->
                                             <img src="admin/uploads/post/<?= $homeItems['image']; ?>" class="img-fluid w-100 rounded-top" alt="Image">
                                             <div class="packages-info d-flex border border-start-0 border-end-0 position-absolute" style="width: 100%; bottom: 0; left: 0; z-index: 5;">
-                                                <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker-alt me-2"></i>Venice - Italy</small>
-                                                <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt me-2"></i>3 days</small>
-                                                <small class="flex-fill text-center py-2"><i class="fa fa-user me-2"></i>2 Person</small>
+                                                <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt me-2"></i><?= $homeItems['created_at']; ?></small>
                                             </div>
-                                            <div class="packages-price py-2 px-4">$349.00</div>
                                         </div>
                                         <div class="packages-content bg-light">
                                             <div class="p-4 pb-0">

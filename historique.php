@@ -146,7 +146,7 @@
                     <div class="col-lg-5">
                         <div class="h-100">
                             <video width="100%" poster="img/logo_etoile.jpg" height="auto" controls>
-                                <source src="img/historique.mp4" type="video/mp4">
+                                <source src="img/je_sais_qui_je_suis.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
                         </div>
