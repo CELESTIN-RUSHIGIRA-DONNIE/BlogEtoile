@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Categorie - Etoile de Louange</title>
+    <title>Post - Etoile de Louange</title>
     <link rel="icon" type="image/png" sizes="16x16" href="admin/assets/images/favicon.png">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
@@ -71,7 +71,8 @@
             </div>
             <div class="col-lg-4 text-center text-lg-end">
                 <div class="d-inline-flex align-items-center" style="height: 45px;">
-                    <a href="#"><small class="me-3 text-light"><i class="fa fa-user me-2"></i>Register</small></a>
+                    <a href="register.php"><small class="me-3 text-light"><i
+                                class="fa fa-user me-2"></i>Register</small></a>
                     <a href="login.php"><small class="me-3 text-light"><i
                                 class="fa fa-sign-in-alt me-2"></i>Login</small></a>
                     <div class="dropdown">
@@ -140,55 +141,103 @@
     </div>
     <!-- Header End -->
 
-    <!-- Les categories -->
+    <!-- Blog Start -->
+    <div class="container-fluid blog py-5">
+        <div class="container">
+            <div class="mx-auto text-center mb-5" style="max-width: 900px;">
+                <h5 class="section-title px-3">Nos Posts</h5>
+                <h1 class="mb-4">Nos Posts Selon la categorie </h1>
+                <p class="mb-0">Découvrez ci-dessous tous nos articles correspondant à la catégorie que vous avez
+                    choisie.
+                    Nous espérons qu’ils répondront à vos attentes et susciteront votre intérêt.
+                </p>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <?php
+                if (isset($_GET['name'])) {
+                    $category_slug = mysqli_real_escape_string($con, $_GET['name']);
 
-    <div class="container-fluid about">
-        <div class=" py-3">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8">
-                        <h3 class="text-dark">Nos Categories</h3>
-                        <div class="underline"></div>
-                        <?php
-                        $homePosts = "SELECT * FROM categories";
-                        $homePosts_run = mysqli_query($con, $homePosts);
-                        if (mysqli_num_rows($homePosts_run) > 0) {
-                            foreach ($homePosts_run as $homePostItems) {
+                    // Récupérer la catégorie correspondante
+                    $cat_query = "SELECT * FROM categories WHERE slug='$category_slug' LIMIT 1";
+                    $cat_query_run = mysqli_query($con, $cat_query);
+
+                    if (mysqli_num_rows($cat_query_run) > 0) {
+                        $category = mysqli_fetch_assoc($cat_query_run);
+                        $category_id = $category['id']; // adapte au vrai nom de la colonne (ex: id, category_id, etc.)
+                        // Posts appartenant à cette catégorie
+                        $posts = "SELECT * FROM posts WHERE category_id='$category_id'";
+                        $posts_run = mysqli_query($con, $posts);
+
+                        if (mysqli_num_rows($posts_run) > 0) {
+                            foreach ($posts_run as $postItems) {
                                 ?>
-                                <div class="mb-4">
-                                    <a class="text-decoration-none" href="catpost.php?name=<?= $homePostItems['slug']; ?>">
-
-                                        <div class="card card-body bg-light">
-                                            <?= $homePostItems['name']; ?>
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="blog-item">
+                                            <div class="blog-img">
+                                                <div class="blog-img-inner">
+                                                    <img class="img-fluid w-100 rounded-top"
+                                                        src="admin/uploads/post/<?= $postItems['image']; ?>"
+                                                        alt="<?= $postItems['titre']; ?>">
+                                                    <div class="blog-icon">
+                                                        <a href="#" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>
+                                                    </div>
+                                                </div>
+                                                <div class="blog-info d-flex align-items-center border border-start-0 border-end-0">
+                                                    <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt text-primary me-2"></i><?= $postItems['created_at']; ?></small>
+                                                </div>
+                                            </div>
+                                            <div class="blog-content border border-top-0 rounded-bottom p-4">
+                                                <!-- <p class="mb-3">Posted By: Royal Hamblin </p> -->
+                                                <a href="#" class="h4"><?= $postItems['titre']; ?></a>
+                                                <p class="my-3"><?= $postItems['content']; ?></p>
+                                                <a href="detail-post.php?id=<?= $postItems['id']; ?>" class="btn btn-primary rounded-pill py-2 px-4">Lire plus</a>
+                                            </div>
                                         </div>
-                                    </a>
-                                </div>
+                                    </div>
                                 <?php
                             }
+                        } else {
+                            ?>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="blog-item">
+                                    <div class="blog-img">
+                                        <div class="blog-img-inner">
+                                            <img class="img-fluid w-100 rounded-top" src="img/blog-1.jpg" alt="Image">
+                                            <div class="blog-icon">
+                                                <a href="#" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="blog-info d-flex align-items-center border border-start-0 border-end-0">
+                                            <small class="flex-fill text-center border-end py-2"><i
+                                                    class="fa fa-calendar-alt text-primary me-2"></i>28 Jan 2050</small>
+                                            <a href="#" class="btn-hover flex-fill text-center text-white border-end py-2"><i
+                                                    class="fa fa-thumbs-up text-primary me-2"></i>1.7K</a>
+                                            <a href="#" class="btn-hover flex-fill text-center text-white py-2"><i
+                                                    class="fa fa-comments text-primary me-2"></i>1K</a>
+                                        </div>
+                                    </div>
+                                    <div class="blog-content border border-top-0 rounded-bottom p-4">
+                                        <p class="mb-3">Posted By: Royal Hamblin </p>
+                                        <a href="#" class="h4">Adventures Trip</a>
+                                        <p class="my-3">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam
+                                            eos</p>
+                                        <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php
                         }
-                        ?>
-                    </div>
-                    <div class="col-md-4">
-
-
-                        <h3>Contactez-nous !</h3>
-                        <div class="underline"></div>
-
-                        <a href="contact.php">etoiledelouangeuea01@gmail.com</a>
-
-
-                    </div>
-
-                </div>
+                    } else {
+                        echo "<h4>Catégorie introuvable</h4>";
+                    }
+                } else {
+                    echo "<h4>Catégorie non spécifiée</h4>";
+                }
+                ?>
             </div>
         </div>
     </div>
-
-    <!-- Fin Categories -->
-
-
-
-
+    <!-- Blog End -->
 
     <!-- Footer Start -->
     <div class="container-fluid footer py-5">
