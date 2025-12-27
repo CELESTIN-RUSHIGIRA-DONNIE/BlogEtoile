@@ -114,7 +114,7 @@
                         <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Plus</a>
                         <div class="dropdown-menu m-0">
                             <a href="categorie.php" class="dropdown-item active">Categorie</a>
-                            <a href="tour.html" class="dropdown-item">Explore Tour</a>
+                            <a href="galerie.php" class="dropdown-item">Galery</a>
                             <a href="booking.html" class="dropdown-item">Travel Booking</a>
                             <a href="gallery.html" class="dropdown-item">Our Gallery</a>
                             <a href="guides.html" class="dropdown-item">Travel Guides</a>
@@ -171,34 +171,36 @@
                         if (mysqli_num_rows($posts_run) > 0) {
                             foreach ($posts_run as $postItems) {
                                 ?>
-                                    <div class="col-lg-4 col-md-6">
-                                        <div class="blog-item">
-                                            <div class="blog-img">
-                                                <div class="blog-img-inner">
-                                                    <img class="img-fluid w-100 rounded-top"
-                                                        src="admin/uploads/post/<?= $postItems['image']; ?>"
-                                                        alt="<?= $postItems['titre']; ?>">
-                                                    <div class="blog-icon">
-                                                        <a href="#" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>
-                                                    </div>
-                                                </div>
-                                                <div class="blog-info d-flex align-items-center border border-start-0 border-end-0">
-                                                    <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt text-primary me-2"></i><?= $postItems['created_at']; ?></small>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="blog-item">
+                                        <div class="blog-img">
+                                            <div class="blog-img-inner">
+                                                <img class="img-fluid w-100 rounded-top"
+                                                    src="admin/uploads/post/<?= $postItems['image']; ?>"
+                                                    alt="<?= $postItems['titre']; ?>">
+                                                <div class="blog-icon">
+                                                    <a href="#" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>
                                                 </div>
                                             </div>
-                                            <div class="blog-content border border-top-0 rounded-bottom p-4">
-                                                <!-- <p class="mb-3">Posted By: Royal Hamblin </p> -->
-                                                <a href="#" class="h4"><?= $postItems['titre']; ?></a>
-                                                <p class="my-3"><?= $postItems['content']; ?></p>
-                                                <a href="detail-post.php?id=<?= $postItems['id']; ?>" class="btn btn-primary rounded-pill py-2 px-4">Lire plus</a>
+                                            <div class="blog-info d-flex align-items-center border border-start-0 border-end-0">
+                                                <small class="flex-fill text-center border-end py-2"><i
+                                                        class="fa fa-calendar-alt text-primary me-2"></i><?= $postItems['created_at']; ?></small>
                                             </div>
                                         </div>
+                                        <div class="blog-content border border-top-0 rounded-bottom p-4">
+                                            <!-- <p class="mb-3">Posted By: Royal Hamblin </p> -->
+                                            <a href="#" class="h4"><?= $postItems['titre']; ?></a>
+                                            <p class="my-3"><?= $postItems['content']; ?></p>
+                                            <a href="detail-post.php?id=<?= $postItems['id']; ?>"
+                                                class="btn btn-primary rounded-pill py-2 px-4">Lire plus</a>
+                                        </div>
                                     </div>
+                                </div>
                                 <?php
                             }
                         } else {
                             ?>
-                                <h4 class="text-center">Aucun post trouvé dans cette catégorie</h4>
+                            <h4 class="text-center">Aucun post trouvé dans cette catégorie</h4>
                             <?php
                         }
                     } else {
@@ -239,8 +241,9 @@
                 <div class="col-md-12 col-lg-12 col-xl-6">
                     <div class="rounded">
                         <iframe class="rounded w-100" style="height: 200px;"
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387191.33750346623!2d-73.97968099999999!3d40.6974881!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1694259649153!5m2!1sen!2sbd"
-                            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d1504.3828692494042!2d28.85994941018481!3d-2.540094786037498!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1simani%20Panzi!5e1!3m2!1sfr!2scd!4v1766816733106!5m2!1sfr!2scd"
+                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
             </div>

@@ -107,5 +107,29 @@ else if (isset($_POST['login'])) {
         exit(0);
     }
 }
+else if (isset($_POST['subscribe'])) {
+    $email = mysqli_real_escape_string($con, $_POST['email']);
 
+    // Vérifier si l'email existe déjà dans la table des abonnés
+    $check_query = "SELECT * FROM subscribers WHERE email = '$email' LIMIT 1";
+    $check_query_run = mysqli_query($con, $check_query);
+
+    if (mysqli_num_rows($check_query_run) > 0) {
+        $_SESSION['message'] = "Vous êtes déjà abonné.";
+        header("Location: index.php");
+        exit(0);
+    } else {
+        // Insérer le nouvel abonné
+        $insert_query = "INSERT INTO subscribers (email) VALUES ('$email')";
+        if (mysqli_query($con, $insert_query)) {
+            $_SESSION['message'] = "Abonnement réussi. Merci de vous être abonné!";
+            header("Location: index.php");
+            exit(0);
+        } else {
+            $_SESSION['message'] = "Erreur lors de l'abonnement. Veuillez réessayer.";
+            header("Location: index.php");
+            exit(0);
+        }
+    }
+}
 ?>

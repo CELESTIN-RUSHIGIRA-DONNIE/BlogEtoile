@@ -104,7 +104,7 @@
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Plus</a>
                         <div class="dropdown-menu m-0">
                             <a href="categorie.php" class="dropdown-item">Categorie</a>
-                            <a href="tour.html" class="dropdown-item">Explore Tour</a>
+                            <a href="galerie.php" class="dropdown-item">Galery</a>
                             <a href="booking.html" class="dropdown-item">Travel Booking</a>
                             <a href="gallery.html" class="dropdown-item">Our Gallery</a>
                             <a href="guides.html" class="dropdown-item">Travel Guides</a>
@@ -121,7 +121,7 @@
     <!-- Header Start -->
     <div class="container-fluid bg-breadcrumb">
         <div class="container text-center py-5" style="max-width: 900px;">
-            <h4 class="text-white display-3 mb-4"><i class="fa fa-envelope"></i>  Contactez-nous !</h4>
+            <h4 class="text-white display-3 mb-4"><i class="fa fa-envelope"></i> Contactez-nous !</h4>
             <ol class="breadcrumb justify-content-center mb-0">
                 <li class="breadcrumb-item"><a href="index.php">Acceuil</a></li>
                 <li class="breadcrumb-item"><a href="#">Contact</a></li>
@@ -131,75 +131,84 @@
     </div>
     <!-- Header End -->
 
-            <!-- Contact Start -->
-        <div class="container-fluid contact bg-light">
-            <div class="container py-5">
-                <div class="mx-auto text-center mb-5" style="max-width: 900px;">
-                    <h5 class="section-title px-3">Contactez-nous</h5>
-                    <h1 class="mb-0">Contactez-nous pour toute demande</h1>
-                </div>
-                <div class="row g-5 align-items-center">
-                    <div class="col-lg-4">
-                        <div class="bg-white rounded p-4">
-                            <div class="text-center mb-4">
-                                <i class="fa fa-map-marker-alt fa-3x text-primary"></i>
-                                <h4 class="text-primary"><Address></Address></h4>
-                                <p class="mb-0"> 123 Panzi, BUKAVU, <br> Democratic Republic of Congo</p>
-                            </div>
-                            <div class="text-center mb-4">
-                                <i class="fa fa-phone-alt fa-3x text-primary mb-3"></i>
-                                <h4 class="text-primary">Mobile</h4>
-                                <p class="mb-0">+243 979599841</p>
-                                <p class="mb-0">+243 858567123</p>
-                            </div>
-                           
-                            <div class="text-center">
-                                <i class="fa fa-envelope-open fa-3x text-primary mb-3"></i>
-                                <h4 class="text-primary">Email</h4>
-                                <p class="mb-0">etoiledelouangeuea01@gmail.com</p>
-                                <p class="mb-0">info@example.com</p>
-                            </div>
+    <!-- Contact Start -->
+    <div class="container-fluid contact bg-light">
+        <div class="container py-5">
+            <div class="mx-auto text-center mb-5" style="max-width: 900px;">
+                <h5 class="section-title px-3">Contactez-nous</h5>
+                <h1 class="mb-0">Contactez-nous pour toute demande</h1>
+            </div>
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-4">
+                    <div class="bg-white rounded p-4">
+                        <div class="text-center mb-4">
+                            <i class="fa fa-map-marker-alt fa-3x text-primary"></i>
+                            <h4 class="text-primary">
+                                <Address></Address>
+                            </h4>
+                            <p class="mb-0"> 123 Panzi, BUKAVU, <br> Democratic Republic of Congo</p>
+                        </div>
+                        <div class="text-center mb-4">
+                            <i class="fa fa-phone-alt fa-3x text-primary mb-3"></i>
+                            <h4 class="text-primary">Mobile</h4>
+                            <p class="mb-0">+243 979599841</p>
+                            <p class="mb-0">+243 858567123</p>
+                        </div>
+
+                        <div class="text-center">
+                            <i class="fa fa-envelope-open fa-3x text-primary mb-3"></i>
+                            <h4 class="text-primary">Email</h4>
+                            <p class="mb-0">etoiledelouangeuea01@gmail.com</p>
+                            <p class="mb-0">info@example.com</p>
                         </div>
                     </div>
-                    <div class="col-lg-8">
-                        <h3 class="mb-2">Envoyez-nous un message</h3>
-                        <p class="mb-4">Pour toute information complémentaire nous concernant, n’hésitez pas à nous contacter. Nous serons heureux de vous fournir tous les renseignements dont vous avez besoin.
-                        <form action="traitement.php" method="post">
-                            <div class="row g-3">
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="text" name="nom" class="form-control border-0" id="name" placeholder="votre nom">
-                                        <label for="name">Votre Nom</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="email" name="email" class="form-control border-0" id="email" placeholder="votre email">
-                                        <label for="email">Votre Email</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-floating">
-                                        <input type="text" name="sujet" class="form-control border-0" id="subject" placeholder="Subject">
-                                        <label for="subject">Sujet</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-floating">
-                                        <textarea class="form-control border-0" name="message" placeholder="Leave a message here" id="message" style="height: 160px"></textarea>
-                                        <label for="message">Message</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <button class="btn btn-primary w-100 py-3" name="envoyer" type="submit"> <i class="fas fa-paper-plane"></i>   Envoyer Message</button>
+                </div>
+                <div class="col-lg-8">
+                    <h3 class="mb-2">Envoyez-nous un message</h3>
+                    <p class="mb-4">Pour toute information complémentaire nous concernant, n’hésitez pas à nous
+                        contacter. Nous serons heureux de vous fournir tous les renseignements dont vous avez besoin.
+                    <form action="traitement.php" method="post">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" name="nom" class="form-control border-0" id="name"
+                                        placeholder="votre nom">
+                                    <label for="name">Votre Nom</label>
                                 </div>
                             </div>
-                        </form>
-                    </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="email" name="email" class="form-control border-0" id="email"
+                                        placeholder="votre email">
+                                    <label for="email">Votre Email</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <input type="text" name="sujet" class="form-control border-0" id="subject"
+                                        placeholder="Subject">
+                                    <label for="subject">Sujet</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <textarea class="form-control border-0" name="message"
+                                        placeholder="Leave a message here" id="message"
+                                        style="height: 160px"></textarea>
+                                    <label for="message">Message</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary w-100 py-3" name="envoyer" type="submit"> <i
+                                        class="fas fa-paper-plane"></i> Envoyer Message</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
-        <!-- Contact End -->
+    </div>
+    <!-- Contact End -->
 
     <!-- Footer Start -->
     <div class="container-fluid footer py-5">
@@ -227,8 +236,9 @@
                 <div class="col-md-12 col-lg-12 col-xl-6">
                     <div class="rounded">
                         <iframe class="rounded w-100" style="height: 200px;"
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387191.33750346623!2d-73.97968099999999!3d40.6974881!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1694259649153!5m2!1sen!2sbd"
-                            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d1504.3828692494042!2d28.85994941018481!3d-2.540094786037498!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1simani%20Panzi!5e1!3m2!1sfr!2scd!4v1766816733106!5m2!1sfr!2scd"
+                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
             </div>

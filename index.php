@@ -93,9 +93,8 @@
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Plus</a>
                             <div class="dropdown-menu m-0">
                                 <a href="categorie.php" class="dropdown-item">Categorie</a>
-                                <a href="tour.html" class="dropdown-item">Explore Tour</a>
+                                <a href="galerie.php" class="dropdown-item">Galery</a>
                                 <a href="booking.html" class="dropdown-item">Travel Booking</a>
-                                <a href="gallery.html" class="dropdown-item">Our Gallery</a>
                                 <a href="guides.html" class="dropdown-item">Travel Guides</a>
                                 <a href="testimonial.html" class="dropdown-item">Testimonial</a>
                                 <a href="404.html" class="dropdown-item">404 Page</a>
@@ -320,7 +319,7 @@
         </div>
         <!-- Membres End -->
 
-        <!-- Travel Guide Start -->
+        <!-- Comite Start -->
         <div class="container-fluid bg-light guide py-5">
             <div class="container py-5">
                 <div class="mx-auto text-center mb-5" style="max-width: 900px;">
@@ -332,7 +331,7 @@
                         <div class="guide-item">
                             <div class="guide-img">
                                 <div class="guide-img-efects">
-                                    <img src="img/guide-1.jpg" class="img-fluid w-100 rounded-top" alt="Image">
+                                    <img src="img/salut.jpg" class="img-fluid w-100 rounded-top" alt="Image">
                                 </div>
                                 <div class="guide-icon rounded-pill p-2">
                                     <a class="btn btn-square btn-primary rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
@@ -353,7 +352,7 @@
                         <div class="guide-item">
                             <div class="guide-img">
                                 <div class="guide-img-efects">
-                                    <img src="img/guide-2.jpg" class="img-fluid w-100 rounded-top" alt="Image">
+                                    <img src="img/stephanie.jpg" class="img-fluid w-100 rounded-top" alt="Image">
                                 </div>
                                 <div class="guide-icon rounded-pill p-2">
                                     <a class="btn btn-square btn-primary rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
@@ -364,7 +363,7 @@
                             </div>
                             <div class="guide-title text-center rounded-bottom p-4">
                                 <div class="guide-title-inner">
-                                    <h4 class="mt-3">Stephanie RK</h4>
+                                    <h4 class="mt-3">Stephanie Ir</h4>
                                     <p class="mb-0">Vice-Présidente</p>
                                 </div>
                             </div>
@@ -374,7 +373,7 @@
                         <div class="guide-item">
                             <div class="guide-img">
                                 <div class="guide-img-efects">
-                                    <img src="img/guide-3.jpg" class="img-fluid w-100 rounded-top" alt="Image">
+                                    <img src="img/lavoisier.jpg" class="img-fluid w-100 rounded-top" alt="Image">
                                 </div>
                                 <div class="guide-icon rounded-pill p-2">
                                     <a class="btn btn-square btn-primary rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
@@ -386,7 +385,7 @@
                             <div class="guide-title text-center rounded-bottom p-4">
                                 <div class="guide-title-inner">
                                     <h4 class="mt-3">Lavoisier Adr</h4>
-                                    <p class="mb-0">Secrétaire</p>
+                                    <p class="mb-0">Sécretaire</p>
                                 </div>
                             </div>
                         </div>
@@ -395,7 +394,7 @@
                         <div class="guide-item">
                             <div class="guide-img">
                                 <div class="guide-img-efects">
-                                    <img src="img/guide-4.jpg" class="img-fluid w-100 rounded-top" alt="Image">
+                                    <img src="img/johana.jpg" class="img-fluid w-100 rounded-top" alt="Image">
                                 </div>
                                 <div class="guide-icon rounded-pill p-2">
                                     <a class="btn btn-square btn-primary rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
@@ -406,8 +405,8 @@
                             </div>
                             <div class="guide-title text-center rounded-bottom p-4">
                                 <div class="guide-title-inner">
-                                    <h4 class="mt-3">Mugisho Valentin</h4>
-                                    <p class="mb-0">Charger du developement</p>
+                                    <h4 class="mt-3">Johana Binti</h4>
+                                    <p class="mb-0">Maitresse de chant</p>
                                 </div>
                             </div>
                         </div>
@@ -519,8 +518,10 @@
                     <p class="text-white mb-5">Si vous désirez rejoindre notre chorale en tant que membre ou partenaire, écrivez-nous par e-mail pour obtenir plus d’informations sur les modalités. Nous serons heureux de vous accueillir ! 
                     </p>
                     <div class="position-relative mx-auto">
-                        <input class="form-control border-primary rounded-pill w-100 py-3 ps-4 pe-5" type="text" placeholder="votre email">
-                        <button type="button" class="btn btn-primary rounded-pill position-absolute top-0 end-0 py-2 px-4 mt-2 me-2">s'abonner</button>
+                        <form action="code.php" method="post">
+                            <input class="form-control border-primary rounded-pill w-100 py-3 ps-4 pe-5" name="email" type="text" placeholder="votre email">
+                            <button type="submit" name="subscribe" class="btn btn-primary rounded-pill position-absolute top-0 end-0 py-2 px-4 mt-2 me-2">s'abonner</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -551,9 +552,7 @@
                     </div>
                     <div class="col-md-12 col-lg-12 col-xl-6">
                         <div class="rounded">
-                            <iframe class="rounded w-100" 
-                            style="height: 200px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387191.33750346623!2d-73.97968099999999!3d40.6974881!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1694259649153!5m2!1sen!2sbd" 
-                            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <iframe class="rounded w-100" style="height: 200px;" src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d1504.3828692494042!2d28.85994941018481!3d-2.540094786037498!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1simani%20Panzi!5e1!3m2!1sfr!2scd!4v1766816733106!5m2!1sfr!2scd" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
                 </div>

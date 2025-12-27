@@ -103,7 +103,7 @@
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Plus</a>
                         <div class="dropdown-menu m-0">
                             <a href="categorie.php" class="dropdown-item">Categorie</a>
-                            <a href="tour.html" class="dropdown-item">Explore Tour</a>
+                            <a href="galerie.php" class="dropdown-item">Galery</a>
                             <a href="booking.html" class="dropdown-item">Travel Booking</a>
                             <a href="gallery.html" class="dropdown-item">Our Gallery</a>
                             <a href="guides.html" class="dropdown-item">Travel Guides</a>
@@ -130,88 +130,51 @@
     </div>
     <!-- Header End -->
 
-            <!-- Packages Start -->
-        <div class="container-fluid packages">
-            <div class="container py-5">
-                <div class="mx-auto text-center mb-5" style="max-width: 900px;">
-                    <h5 class="section-title px-3">Programme</h5>
-                    <h1 class="mb-0">Nos programmes</h1>
-                </div>
-                <div class="packages-carousel owl-carousel">
-                                        <?php
-                        $homeCategory = "SELECT * FROM posts WHERE status='1'";
-                        $homeCategory_run = mysqli_query($con, $homeCategory);
-                        if (mysqli_num_rows($homeCategory_run) > 0) 
-                        {
-                            foreach ($homeCategory_run as $homeItems) 
-                            {
-                                ?>
-                                    <div class="packages-item">
-                                        <div class="packages-img">
-                                            <!-- <img src="img/packages-4.jpg" class="img-fluid w-100 rounded-top" alt="Image"> -->
-                                            <img src="admin/uploads/post/<?= $homeItems['image']; ?>" class="img-fluid w-100 rounded-top" alt="Image">
-                                            <div class="packages-info d-flex border border-start-0 border-end-0 position-absolute" style="width: 100%; bottom: 0; left: 0; z-index: 5;">
-                                                <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt me-2"></i><?= $homeItems['created_at']; ?></small>
-                                            </div>
-                                        </div>
-                                        <div class="packages-content bg-light">
-                                            <div class="p-4 pb-0">
-                                                <p class="mb-0"><?= $homeItems['titre']; ?></p>
-                                                <div class="mb-3">
-                                                    <small class="fa fa-star text-primary"></small>
-                                                    <small class="fa fa-star text-primary"></small>
-                                                    <small class="fa fa-star text-primary"></small>
-                                                    <small class="fa fa-star text-primary"></small>
-                                                    <small class="fa fa-star text-primary"></small>
-                                                </div>
-                                                <p class="mb-4"><?= $homeItems['content']; ?></p>
-                                            </div>
-                                            <div class="row bg-primary rounded-bottom mx-0">
-                                                <div class="col-6 text-start px-0">
-                                                    <a href="detail-post.php?id=<?= $homeItems['id']; ?>" class="btn-hover btn text-white py-2 px-4">Voir plus</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                <?php
-                            }
-                        }
-                    ?>
-                </div>
-            </div>
-        </div>
-        <!-- Packages End -->
-    <!-- About Start -->
-    <!-- <div class="container-fluid about ">
+    <!-- Packages Start -->
+    <div class="container-fluid packages">
         <div class="container py-5">
-            <div class="row g-5 align-items-center">
-                <div class="col-lg-5">
-                    <div class="h-100"
-                        style="border: 50px solid; border-color: transparent #13357B transparent #13357B;">
-                        <img src="img/logo_etoile.jpg" class="img-fluid w-100 h-100" alt="">
-                    </div>
-                </div>
-                <div class="col-lg-7"
-                    style="background: linear-gradient(rgba(255, 255, 255, .8), rgba(255, 255, 255, .8)), url(img/about-img-1.png);">
-                    <h5 class="section-about-title pe-3">Qui sommes-nous ?</h5>
-                    <h1 class="mb-4">Etoile de Louange UEA</h1>
-                    <p class="mb-4">La Chorale Étoile de Louange est un ministère de chant issu de l’aumônerie
-                        protestante de l’Université Evangelique en Afrique (UEA), située à Bukavu, en République
-                        Démocratique du Congo (RDC). rassemblant des jeunes passionnés par la louange et engagés dans la
-                        mission d’annoncer la Bonne Nouvelle de Jésus-Christ à travers le chant.</p>
-                    <p class="mb-4">Portée par un esprit de service et d’adoration, elle fait de chaque mélodie une
-                        offrande à Dieu et une invitation à l’élévation spirituelle.
-                        Notre mission : répandre la paix, l’amour et l’espérance en Christ, édifier les croyants et
-                        toucher les cœurs.</p>
-                    <p class="mb-4">Au-delà du chant, nous vivons la fraternité, la foi et le dévouement. Nous voulons
-                        briller comme des étoiles non pour notre gloire, mais pour celle de Jésus-Christ, la véritable
-                        Lumière du monde.</p>
-                    <a class="btn btn-primary rounded-pill py-3 px-5 mt-2" href="">Lire plus</a>
-                </div>
+            <div class="mx-auto text-center mb-5" style="max-width: 900px;">
+                <h5 class="section-title px-3">Programme</h5>
+                <h1 class="mb-0">Nos programmes</h1>
+            </div>
+            <div class="packages-carousel owl-carousel">
+                <?php
+                $homeCategory = "SELECT * FROM posts WHERE status='1'";
+                $homeCategory_run = mysqli_query($con, $homeCategory);
+                if (mysqli_num_rows($homeCategory_run) > 0) {
+                    foreach ($homeCategory_run as $homeItems) {
+                        ?>
+                        <div class="packages-item">
+                            <div class="packages-img">
+                                <!-- <img src="img/packages-4.jpg" class="img-fluid w-100 rounded-top" alt="Image"> -->
+                                <img src="admin/uploads/post/<?= $homeItems['image']; ?>" class="img-fluid w-100 rounded-top"
+                                    alt="Image">
+                                <div class="packages-info d-flex border border-start-0 border-end-0 position-absolute"
+                                    style="width: 100%; bottom: 0; left: 0; z-index: 5;">
+                                    <small class="flex-fill text-center border-end py-2"><i
+                                            class="fa fa-calendar-alt me-2"></i><?= $homeItems['created_at']; ?></small>
+                                </div>
+                            </div>
+                            <div class="packages-content bg-light">
+                                <div class="p-4 pb-0">
+                                    <h4 class="mb-0"><?= $homeItems['titre']; ?></h4>
+                                    <p class="mb-4"><?= $homeItems['content']; ?></p>
+                                </div>
+                                <div class="row bg-primary rounded-bottom mx-0">
+                                    <div class="col-6 text-start px-0">
+                                        <a href="detail-post.php?id=<?= $homeItems['id']; ?>"
+                                            class="btn-hover btn text-white py-2 px-4">Voir plus</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <?php
+                    }
+                }
+                ?>
             </div>
         </div>
-    </div> -->
-    <!-- About End -->
+    </div>
 
 
     <!-- Footer Start -->
@@ -240,8 +203,9 @@
                 <div class="col-md-12 col-lg-12 col-xl-6">
                     <div class="rounded">
                         <iframe class="rounded w-100" style="height: 200px;"
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387191.33750346623!2d-73.97968099999999!3d40.6974881!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1694259649153!5m2!1sen!2sbd"
-                            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d1504.3828692494042!2d28.85994941018481!3d-2.540094786037498!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1simani%20Panzi!5e1!3m2!1sfr!2scd!4v1766816733106!5m2!1sfr!2scd"
+                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
             </div>
