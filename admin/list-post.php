@@ -56,7 +56,7 @@
                                                      <td><?= $item['navbar_status'] ?></td>
                                                      <td><?= $item['status'] ?></td>
                                                     <td>
-                                                        <a href="javascript:void(0);" class="btn btn-sm btn-primary"><i
+                                                        <a href="edit-post.php?id=<?= $item['id'] ?>" class="btn btn-sm btn-primary"><i
                                                                 class="la la-pencil"></i></a>
                                                         <a href="javascript:void(0);" class="btn btn-sm btn-danger"><i
                                                                 class="la la-trash-o"></i></a>

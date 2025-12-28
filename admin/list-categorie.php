@@ -6,14 +6,14 @@
         <div class="row page-titles mx-0">
             <div class="col-sm-6 p-md-0">
                 <div class="welcome-text">
-                    <h4>Liste de Membres</h4>
+                    <h4>Liste de Catégories</h4>
                 </div>
             </div>
             <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.index">Home</a></li>
-                    <li class="breadcrumb-item active"><a href="javascript:void(0);">Membres</a></li>
-                    <li class="breadcrumb-item active"><a href="javascript:void(0);">Liste de membres</a></li>
+                    <li class="breadcrumb-item active"><a href="javascript:void(0);">Catégories</a></li>
+                    <li class="breadcrumb-item active"><a href="javascript:void(0);">Liste de Catégories</a></li>
                 </ol>
             </div>
         </div>
@@ -22,40 +22,34 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title"><strong>Liste de Membres</strong></h4>
-                        <a href="add-members.php" class="btn btn-primary">+ Ajouter</a>
+                        <h4 class="card-title"><strong>Liste de Catégories</strong></h4>
+                        <a href="add-categorie.php" class="btn btn-primary">+ Ajouter</a>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table id="example3" class="display" style="min-width: 845px">
                                 <thead>
                                     <tr>
-                                        <th>image</th>
-                                        <th>Noms</th>
-                                        <th>Email</th>
-                                        <th>Télephone</th>
-                                        <th>Fonction</th>
+                                        <th>ID</th>
+                                        <th>Nom</th>
+                                        <th>Slug</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $membre = "SELECT * FROM membres WHERE status = 1";
-                                    $membre_run = mysqli_query($con, $membre);
-                                    if (mysqli_num_rows($membre_run) > 0) {
-                                        foreach ($membre_run as $item) {
+                                    $categorie = "SELECT * FROM categories WHERE status = 1";
+                                    $categorie_run = mysqli_query($con, $categorie);
+                                    if (mysqli_num_rows($categorie_run) > 0) {
+                                        foreach ($categorie_run as $item) {
                                             ?>
                                                 <tr>
-                                                    <td><?php echo '<img class="rounded" width="35" src="uploads/' . $item['profile'] . '" alt="User Image">' ?></td>
-                                                    <td><?= $item['nom'].' '.$item['postnom'].' '.$item['prenom']; ?></td>
-                                                    <td><?= $item['email'] ?></td>
-                                                    <td> <?= $item['telephone'] ?></td>
-                                                    <td><?= $item['fonction'] ?></td>
+                                                    <td><?= $item['id']; ?></td>
+                                                    <td><?= $item['name'] ?></td>
+                                                    <td> <?= $item['slug'] ?></td>
                                                     <td>
-                                                        <a href="view-members.php?id=<?= $item['id'] ?>" class="btn btn-sm btn-primary"><i
-                                                                class="la la-eye"></i></a>
-                                                        <a href="javascript:void(0);" class="btn btn-sm btn-danger"><i
-                                                                class="la la-trash-o"></i></a>
+                                                        <a href="edit-categorie.php?id=<?= $item['id'] ?>" class="btn btn-sm btn-primary"><i class="la la-edit"></i></a>
+                                                        <a href="javascript:void(0);" class="btn btn-sm btn-danger"><i class="la la-trash-o"></i></a>
                                                     </td>
                                                 </tr>
                                             <?php

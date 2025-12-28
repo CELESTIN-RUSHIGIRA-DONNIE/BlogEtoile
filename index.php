@@ -178,7 +178,7 @@
                             <img src="img/logo_etoile.jpg" class="img-fluid w-100 h-100" alt="">
                         </div>
                     </div>
-                    <div class="col-lg-7" style="background: linear-gradient(rgba(255, 255, 255, .8), rgba(255, 255, 255, .8)), url(img/about-img-1.png);">
+                    <div class="col-lg-7" style="background: linear-gradient(rgba(255, 255, 255, .8), rgba(255, 255, 255, .8)), url(img/etoile.png);">
                         <h5 class="section-about-title pe-3">Qui sommes-nous ?</h5>
                         <h1 class="mb-4">Etoile de Louange UEA</h1>
                         <p class="mb-4">La Chorale Étoile de Louange est un ministère de chant issu de l’aumônerie protestante de l’Université Evangelique en Afrique (UEA), située à Bukavu, en République Démocratique du Congo (RDC). rassemblant des jeunes passionnés par la louange et engagés dans la mission d’annoncer la Bonne Nouvelle de Jésus-Christ à travers le chant.</p>

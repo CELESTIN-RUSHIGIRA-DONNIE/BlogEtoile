@@ -178,8 +178,14 @@
 .navbar-light .navbar-brand h1 {
     color: var(--bs-white);
 }
+.navbar-light .navbar-brand h3 {
+    color: var(--bs-white);
+}
 
 .sticky-top.navbar-light .navbar-brand h1 {
+    color: var(--bs-primary);
+}
+.sticky-top.navbar-light .navbar-brand h3 {
     color: var(--bs-primary);
 }
 

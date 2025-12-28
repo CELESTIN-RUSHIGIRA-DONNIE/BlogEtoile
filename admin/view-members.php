@@ -46,7 +46,7 @@
                                         </li>
                                     </ul>
                                     <div class="card-footer text-center border-0 mt-0">
-                                        <a href="javascript:void(0);" class="btn btn-primary btn-rounded px-4"><i class="la la-edit"></i>  Editer</a>
+                                        <a href="edit-members.php?id=<?= $list['id'] ?>" class="btn btn-primary btn-rounded px-4"><i class="la la-edit"></i>  Editer</a>
                                         <a href="card.php?id=<?= $list['id'] ?>" class="btn btn-warning btn-rounded px-4"><i class="la la-print"></i>  Print Card</a>
                                     </div>
                                 </div>
