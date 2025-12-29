@@ -61,8 +61,8 @@
             </div>
             <div class="col-lg-4 text-center text-lg-end">
                 <div class="d-inline-flex align-items-center" style="height: 45px;">
-                    <a href="#"><small class="me-3 text-light"><i class="fa fa-user me-2"></i>Register</small></a>
-                    <a href="login.php"><small class="me-3 text-light"><i
+                    <a href="register"><small class="me-3 text-light"><i class="fa fa-user me-2"></i>Register</small></a>
+                    <a href="login"><small class="me-3 text-light"><i
                                 class="fa fa-sign-in-alt me-2"></i>Login</small></a>
                     <div class="dropdown">
                         <a href="#" class="dropdown-toggle text-light" data-bs-toggle="dropdown"><small><i
@@ -84,7 +84,7 @@
     <!-- Navbar & Hero Start -->
     <div class="container-fluid position-relative p-0">
         <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
-            <a href="" class="navbar-brand p-0">
+            <a href="index" class="navbar-brand p-0">
                 <h1 class="m-0">
                     <img src="img/lg-et.jpg" width="50px" class="img-fluid" alt="Image">
                     Etoile de Louange

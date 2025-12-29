@@ -61,8 +61,8 @@
             </div>
             <div class="col-lg-4 text-center text-lg-end">
                 <div class="d-inline-flex align-items-center" style="height: 45px;">
-                    <a href="#"><small class="me-3 text-light"><i class="fa fa-user me-2"></i>Register</small></a>
-                    <a href="login.php"><small class="me-3 text-light"><i
+                    <a href="register"><small class="me-3 text-light"><i class="fa fa-user me-2"></i>Register</small></a>
+                    <a href="login"><small class="me-3 text-light"><i
                                 class="fa fa-sign-in-alt me-2"></i>Login</small></a>
                     <div class="dropdown">
                         <a href="#" class="dropdown-toggle text-light" data-bs-toggle="dropdown"><small><i
@@ -310,11 +310,11 @@
     <!-- Services End -->
 
     <!-- Membre Start -->
-    <div class="container-fluid packages py-5">
+    <div class="container-fluid packages">
         <div class="container py-5">
             <div class="mx-auto text-center mb-5" style="max-width: 900px;">
                 <h5 class="section-title px-3">Membres</h5>
-                <h1 class="mb-0">Voici nos membres actif</h1>
+                <h1 class="mb-0">Voici nos membres</h1>
             </div>
             <div class="packages-carousel owl-carousel">
                 <?php
@@ -517,14 +517,15 @@
     <!-- Testimonial End -->
 
     <!-- Subscribe Start -->
-    <div class="container-fluid subscribe py-5">
+    <div class="container-fluid subscribe">
         <div class="container text-center py-5">
             <div class="mx-auto text-center" style="max-width: 900px;">
                 <h5 class="subscribe-title px-3">S'abonner</h5>
                 <h2 class="text-white mb-4">Notre bulletin d'information</h2>
-                <p class="text-white mb-5">Si vous désirez rejoindre notre chorale en tant que membre ou partenaire,
-                    écrivez-nous par e-mail pour obtenir plus d’informations sur les modalités. Nous serons heureux de
-                    vous accueillir !
+                <p class="text-white mb-5">Restez connecté à notre communauté ! 
+                    En nous communiquant votre adresse e-mail, vous serez automatiquement abonné 
+                    et recevrez en temps réel toutes nos actualités, 
+                    événements et annonces importantes
                 </p>
                 <div class="position-relative mx-auto">
                     <form action="code.php" method="post">

@@ -61,8 +61,8 @@
             </div>
             <div class="col-lg-4 text-center text-lg-end">
                 <div class="d-inline-flex align-items-center" style="height: 45px;">
-                    <a href="#"><small class="me-3 text-light"><i class="fa fa-user me-2"></i>Register</small></a>
-                    <a href="login.php"><small class="me-3 text-light"><i
+                    <a href="register"><small class="me-3 text-light"><i class="fa fa-user me-2"></i>Register</small></a>
+                    <a href="login"><small class="me-3 text-light"><i
                                 class="fa fa-sign-in-alt me-2"></i>Login</small></a>
                     <div class="dropdown">
                         <a href="#" class="dropdown-toggle text-light" data-bs-toggle="dropdown"><small><i
@@ -84,7 +84,7 @@
     <!-- Navbar & Hero Start -->
     <div class="container-fluid position-relative p-0">
         <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
-            <a href="" class="navbar-brand p-0">
+            <a href="index" class="navbar-brand p-0">
                 <h1 class="m-0">
                     <img src="img/lg-et.jpg" width="50px" class="img-fluid" alt="Image">
                     Etoile de Louange
@@ -146,26 +146,27 @@
                 if (mysqli_num_rows($homeCategory_run) > 0) {
                     foreach ($homeCategory_run as $homeItems) {
                         ?>
-                            <div class="testimonial-item text-center rounded pb-4">
-                                <div class="testimonial-comment bg-light rounded p-4">
-                                    <p class="text-center mb-5"><?= $homeItems['message']; ?>
-                                    </p>
-                                </div>
-                                <div class="testimonial-img p-1">
-                                    <img src="admin/uploads/testimonials/<?= $homeItems['photo'] ?>" class="img-fluid rounded-circle" alt="Image">
-                                </div>
-                                <div style="margin-top: -35px;">
-                                    <h5 class="mb-0"><?= $homeItems['name'] ?></h5>
-                                    <p class="mb-0"><?= $homeItems['email'] ?></p>
-                                    <div class="d-flex justify-content-center">
-                                        <i class="fas fa-star text-primary"></i>
-                                        <i class="fas fa-star text-primary"></i>
-                                        <i class="fas fa-star text-primary"></i>
-                                        <i class="fas fa-star text-primary"></i>
-                                        <i class="fas fa-star text-primary"></i>
-                                    </div>
+                        <div class="testimonial-item text-center rounded pb-4">
+                            <div class="testimonial-comment bg-light rounded p-4">
+                                <p class="text-center mb-5"><?= $homeItems['message']; ?>
+                                </p>
+                            </div>
+                            <div class="testimonial-img p-1">
+                                <img src="admin/uploads/testimonials/<?= $homeItems['photo'] ?>"
+                                    class="img-fluid rounded-circle" alt="Image">
+                            </div>
+                            <div style="margin-top: -35px;">
+                                <h5 class="mb-0"><?= $homeItems['name'] ?></h5>
+                                <p class="mb-0"><?= $homeItems['email'] ?></p>
+                                <div class="d-flex justify-content-center">
+                                    <i class="fas fa-star text-primary"></i>
+                                    <i class="fas fa-star text-primary"></i>
+                                    <i class="fas fa-star text-primary"></i>
+                                    <i class="fas fa-star text-primary"></i>
+                                    <i class="fas fa-star text-primary"></i>
                                 </div>
                             </div>
+                        </div>
                         <?php
                     }
                 }
@@ -213,7 +214,8 @@
                             <div class="col-12">
                                 <div class="form-floating">
                                     <textarea class="form-control bg-white border-0" maxlength="200" name="message"
-                                        placeholder="Votre Temoignage" id="message" style="height: 100px" required ></textarea>
+                                        placeholder="Votre Temoignage" id="message" style="height: 100px"
+                                        required></textarea>
                                     <label for="message">Votre Temoignage</label>
                                 </div>
                             </div>
@@ -241,9 +243,10 @@
             <div class="mx-auto text-center" style="max-width: 900px;">
                 <h5 class="subscribe-title px-3">S'abonner</h5>
                 <h2 class="text-white mb-4">Notre bulletin d'information</h2>
-                <p class="text-white mb-5">Si vous désirez rejoindre notre chorale en tant que membre ou partenaire,
-                    écrivez-nous par e-mail pour obtenir plus d’informations sur les modalités. Nous serons heureux de
-                    vous accueillir !
+                <p class="text-white mb-5">Restez connecté à notre communauté !
+                    En nous communiquant votre adresse e-mail, vous serez automatiquement abonné
+                    et recevrez en temps réel toutes nos actualités,
+                    événements et annonces importantes
                 </p>
                 <div class="position-relative mx-auto">
                     <form action="code.php" method="post">

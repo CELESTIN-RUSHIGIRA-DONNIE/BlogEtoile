@@ -61,8 +61,8 @@
             </div>
             <div class="col-lg-4 text-center text-lg-end">
                 <div class="d-inline-flex align-items-center" style="height: 45px;">
-                    <a href="#"><small class="me-3 text-light"><i class="fa fa-user me-2"></i>Register</small></a>
-                    <a href="login.php"><small class="me-3 text-light"><i
+                    <a href="register"><small class="me-3 text-light"><i class="fa fa-user me-2"></i>Register</small></a>
+                    <a href="login"><small class="me-3 text-light"><i
                                 class="fa fa-sign-in-alt me-2"></i>Login</small></a>
                     <div class="dropdown">
                         <a href="#" class="dropdown-toggle text-light" data-bs-toggle="dropdown"><small><i
@@ -84,7 +84,7 @@
     <!-- Navbar & Hero Start -->
     <div class="container-fluid position-relative p-0">
         <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
-            <a href="" class="navbar-brand p-0">
+            <a href="index" class="navbar-brand p-0">
                 <h1 class="m-0">
                     <img src="img/lg-et.jpg" width="50px" class="img-fluid" alt="Image">
                     Etoile de Louange
@@ -176,21 +176,24 @@
 
 
 
-    <!-- Subscribe Start -->
+       <!-- Subscribe Start -->
     <div class="container-fluid subscribe py-5">
         <div class="container text-center py-5">
             <div class="mx-auto text-center" style="max-width: 900px;">
                 <h5 class="subscribe-title px-3">S'abonner</h5>
                 <h2 class="text-white mb-4">Notre bulletin d'information</h2>
-                <p class="text-white mb-5">Si vous désirez rejoindre notre chorale en tant que membre ou partenaire,
-                    écrivez-nous par e-mail pour obtenir plus d’informations sur les modalités. Nous serons heureux de
-                    vous accueillir !
+                <p class="text-white mb-5">Restez connecté à notre communauté ! 
+                    En nous communiquant votre adresse e-mail, vous serez automatiquement abonné 
+                    et recevrez en temps réel toutes nos actualités, 
+                    événements et annonces importantes
                 </p>
                 <div class="position-relative mx-auto">
-                    <input class="form-control border-primary rounded-pill w-100 py-3 ps-4 pe-5" type="text"
-                        placeholder="votre email">
-                    <button type="button"
-                        class="btn btn-primary rounded-pill position-absolute top-0 end-0 py-2 px-4 mt-2 me-2">s'abonner</button>
+                    <form action="code.php" method="post">
+                        <input class="form-control border-primary rounded-pill w-100 py-3 ps-4 pe-5" name="email"
+                            type="text" placeholder="votre email">
+                        <button type="submit" name="subscribe"
+                            class="btn btn-primary rounded-pill position-absolute top-0 end-0 py-2 px-4 mt-2 me-2">s'abonner</button>
+                    </form>
                 </div>
             </div>
         </div>

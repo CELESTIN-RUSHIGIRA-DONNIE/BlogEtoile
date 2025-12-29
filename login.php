@@ -61,7 +61,7 @@
             </div>
             <div class="col-lg-4 text-center text-lg-end">
                 <div class="d-inline-flex align-items-center" style="height: 45px;">
-                    <a href="register.php"><small class="me-3 text-light"><i
+                    <a href="register"><small class="me-3 text-light"><i
                                 class="fa fa-user me-2"></i>Register</small></a>
                     <div class="dropdown">
                         <a href="#" class="dropdown-toggle text-light" data-bs-toggle="dropdown"><small><i

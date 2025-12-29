@@ -1,12 +1,12 @@
 <?php
-    session_start();
-    if (!isset($_SESSION['auth_user'])) {
+session_start();
+if (!isset($_SESSION['auth_user'])) {
     $_SESSION['message'] = "Connectez-vous d'abord !";
     $_SESSION["msg_type"] = "warning";
     header("Location: ../login.php");
     exit(0);
 }
-    include('conf/db.php');
+include('conf/db.php');
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +22,7 @@
 
     <link rel="stylesheet" href="assets/vendor/chartist/css/chartist.min.css">
     <link rel="stylesheet" href="assets/vendor/toastr/css/toastr.min.css">
-	
+
     <link href="assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
 
 
@@ -69,7 +69,8 @@
                                 </span>
                                 <div class="dropdown-menu p-0 m-0">
                                     <form>
-                                        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                                        <input class="form-control" type="search" placeholder="Search"
+                                            aria-label="Search">
                                     </form>
                                 </div>
                             </div>
@@ -78,10 +79,12 @@
                         <ul class="navbar-nav header-right">
                             <li class="nav-item dropdown notification_dropdown">
                                 <a class="nav-link bell ai-icon" href="#" role="button" data-toggle="dropdown">
-                                    <svg id="icon-user" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bell">
-										<path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
-										<path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
-									</svg>
+                                    <svg id="icon-user" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                        viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" class="feather feather-bell">
+                                        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                                        <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                                    </svg>
                                     <div class="pulse-css"></div>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
@@ -90,7 +93,8 @@
                                             <span class="success"><i class="ti-user"></i></span>
                                             <div class="media-body">
                                                 <a href="#">
-                                                    <p><strong>Martin</strong> has added a <strong>customer</strong> Successfully
+                                                    <p><strong>Martin</strong> has added a <strong>customer</strong>
+                                                        Successfully
                                                     </p>
                                                 </a>
                                             </div>
@@ -109,7 +113,8 @@
                                             <span class="danger"><i class="ti-bookmark"></i></span>
                                             <div class="media-body">
                                                 <a href="#">
-                                                    <p><strong>Robin</strong> marked a <strong>ticket</strong> as unsolved.
+                                                    <p><strong>Robin</strong> marked a <strong>ticket</strong> as
+                                                        unsolved.
                                                     </p>
                                                 </a>
                                             </div>
@@ -128,14 +133,16 @@
                                             <span class="success"><i class="ti-image"></i></span>
                                             <div class="media-body">
                                                 <a href="#">
-                                                    <p><strong> James.</strong> has added a<strong>customer</strong> Successfully
+                                                    <p><strong> James.</strong> has added a<strong>customer</strong>
+                                                        Successfully
                                                     </p>
                                                 </a>
                                             </div>
                                             <span class="notify-time">3:20 am</span>
                                         </li>
                                     </ul>
-                                    <a class="all-notification" href="#">See all notifications <i class="ti-arrow-right"></i></a>
+                                    <a class="all-notification" href="#">See all notifications <i
+                                            class="ti-arrow-right"></i></a>
                                 </div>
                             </li>
                             <li class="nav-item dropdown header-profile">
@@ -144,11 +151,23 @@
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
                                     <a href="app-profile.html" class="dropdown-item ai-icon">
-                                        <svg id="icon-user1" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                                        <svg id="icon-user1" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                            viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">
+                                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                            <circle cx="12" cy="7" r="4"></circle>
+                                        </svg>
                                         <span class="ml-2">Profile </span>
                                     </a>
                                     <a href="email-inbox.html" class="dropdown-item ai-icon">
-                                        <svg id="icon-inbox" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                                        <svg id="icon-inbox" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                            viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail">
+                                            <path
+                                                d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                            </path>
+                                            <polyline points="22,6 12,13 2,6"></polyline>
+                                        </svg>
                                         <span class="ml-2">Inbox </span>
                                     </a>
                                     <form action="logout.php" method="POST">
@@ -183,27 +202,27 @@
                 <ul class="metismenu" id="menu">
                     <li class="nav-label first">Main Menu</li>
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
-							<i class="la la-home"></i>
-							<span class="nav-text">Tableau de board</span>
-						</a>
+                            <i class="la la-home"></i>
+                            <span class="nav-text">Tableau de board</span>
+                        </a>
                         <ul aria-expanded="false">
                             <li><a href="index.php">Dashboard</a></li>
                         </ul>
                     </li>
                     <li class="nav-label">Option</li>
-					<li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
-							<i class="la la-users"></i>
-							<span class="nav-text">Membres</span>
-						</a>
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="la la-users"></i>
+                            <span class="nav-text">Membres</span>
+                        </a>
                         <ul aria-expanded="false">
                             <li><a href="add-members.php">AJouter Membre</a></li>
                             <li><a href="list-members.php">Liste Membres</a></li>
                         </ul>
                     </li>
-					<li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
-							<i class="la la-book"></i>
-							<span class="nav-text">Posts</span>
-						</a>
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="la la-book"></i>
+                            <span class="nav-text">Posts</span>
+                        </a>
                         <ul aria-expanded="false">
                             <li><a href="add-categorie.php">Categorie</a></li>
                             <li><a href="list-categorie.php">Liste Categorie</a></li>
@@ -211,7 +230,28 @@
                             <li><a href="list-post.php">Liste Posts</a></li>
                         </ul>
                     </li>
-
-				</ul>
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="la la-globe"></i>
+                            <span class="nav-text">Infos</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="testimonials.php">Temoignage</a></li>
+                            <li><a href="newsletter.php">Newsletters</a></li>
+                            <li><a href="subscribers">Abonnés</a></li>
+                            <li><a href="list-post.php">Liste Posts</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="la la-folder-open"></i>
+                            <span class="nav-text">Archive</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="upload.php">uploads</a></li>
+                            <li><a href="list-upload.php">Archive</a></li>
+                            <!-- <li><a href="list-subscribers.php">Abonnés</a></li>
+                            <li><a href="list-post.php">Liste Posts</a></li> -->
+                        </ul>
+                    </li>
+                </ul>
             </div>
         </div>
