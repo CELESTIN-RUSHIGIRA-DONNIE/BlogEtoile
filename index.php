@@ -75,7 +75,7 @@
         <!-- Navbar & Hero Start -->
         <div class="container-fluid position-relative p-0">
             <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
-                <a href="" class="navbar-brand p-0">
+                <a href="index" class="navbar-brand p-0">
                     <h1 class="m-0">
                     <img src="img/lg-et.jpg" width="50px" class="img-fluid" alt="Image">                    
                     Etoile de Louange</h1>
@@ -87,14 +87,14 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0">
                         <a href="index.php" class="nav-item nav-link active">Acceuil</a>
-                        <a href="post.php" class="nav-item nav-link">Posts</a>
+                        <a href="post" class="nav-item nav-link">Posts</a>
                         <a href="historique.php" class="nav-item nav-link">Historique</a>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Plus</a>
                             <div class="dropdown-menu m-0">
                                 <a href="categorie.php" class="dropdown-item">Categorie</a>
                                 <a href="galerie.php" class="dropdown-item">Galery</a>
-                                <a href="booking.html" class="dropdown-item">Travel Booking</a>
+                                <a href="testimonials.php" class="dropdown-item">Temoignage</a>
                                 <a href="guides.html" class="dropdown-item">Travel Guides</a>
                                 <a href="testimonial.html" class="dropdown-item">Testimonial</a>
                                 <a href="404.html" class="dropdown-item">404 Page</a>

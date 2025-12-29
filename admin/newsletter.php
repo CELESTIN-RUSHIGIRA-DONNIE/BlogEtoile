@@ -64,28 +64,29 @@
                                         </div>
                                     </div>
                                     <div class="compose-content">
-                                        <form action="#">
+                                        <form action="code.php" method="POST">
                                             <div class="form-group">
-                                                <input type="text" class="form-control bg-transparent" placeholder=" To:">
+                                                <input type="text" class="form-control bg-transparent" placeholder=" To:" value="à nos abonné(e)s" disabled>
                                             </div>
                                             <div class="form-group">
-                                                <input type="text" class="form-control bg-transparent" placeholder=" Subject:">
+                                                <input type="text" name="subject" class="form-control bg-transparent" placeholder=" Subject:">
                                             </div>
                                             <div class="form-group">
-                                                <textarea id="email-compose-editor" class="textarea_editor form-control bg-transparent" rows="4" placeholder="Enter text ..."></textarea>
+                                                <textarea id="email-compose-editor" name="message" class="textarea_editor form-control bg-transparent" rows="4" placeholder="Enter text ..."></textarea>
+                                            </div>
+                                            <div class="text-left mt-4 mb-5">
+                                                <button class="btn btn-primary btn-sl-sm mr-3" type="submit" name="send_newsletter"><span class="mr-2"><i class="fa fa-paper-plane"></i></span> Send</button>
+                                                <button class="btn btn-dark btn-sl-sm" type="button"><span class="mr-2"><i class="fa fa-times" aria-hidden="true"></i></span> Discard</button>
                                             </div>
                                         </form>
-                                        <h5 class="mb-4"><i class="fa fa-paperclip"></i> Attatchment</h5>
+                                        <!-- <h5 class="mb-4"><i class="fa fa-paperclip"></i> Attatchment</h5>
                                         <form action="#" class="d-flex flex-column align-items-center justify-content-center">
                                             <div class="fallback w-100">
                                                 <input type="file" class="dropify" data-default-file="">
                                             </div>
-                                        </form>
+                                        </form> -->
                                     </div>
-                                    <div class="text-left mt-4 mb-5">
-                                        <button class="btn btn-primary btn-sl-sm mr-3" type="button"><span class="mr-2"><i class="fa fa-paper-plane"></i></span> Send</button>
-                                        <button class="btn btn-dark btn-sl-sm" type="button"><span class="mr-2"><i class="fa fa-times" aria-hidden="true"></i></span> Discard</button>
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>

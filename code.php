@@ -1,5 +1,5 @@
 <?php
-error_reporting(E_ALL); 
+error_reporting(E_ALL);
 ini_set("display_errors", 1);
 session_start();
 include("admin/conf/db.php");
@@ -46,9 +46,7 @@ if (isset($_POST['register'])) {
         header('Location: register.php');
         exit(0);
     }
-} 
-
-else if (isset($_POST['login'])) {
+} else if (isset($_POST['login'])) {
 
     $email = mysqli_real_escape_string($con, $_POST['email']);
     $password = mysqli_real_escape_string($con, $_POST['password']);
@@ -88,8 +86,7 @@ else if (isset($_POST['login'])) {
             if ($role == 'admin') {
                 $_SESSION['message'] = "Bienvenue Admin";
                 header("Location: admin/index.php");
-            }
-            else {
+            } else {
                 $_SESSION['message'] = "Bienvenue Utilisateur";
                 header("Location: admin/index.php");
             }
@@ -106,8 +103,7 @@ else if (isset($_POST['login'])) {
         header("Location: login.php");
         exit(0);
     }
-}
-else if (isset($_POST['subscribe'])) {
+} else if (isset($_POST['subscribe'])) {
     $email = mysqli_real_escape_string($con, $_POST['email']);
 
     // Vérifier si l'email existe déjà dans la table des abonnés
@@ -131,5 +127,72 @@ else if (isset($_POST['subscribe'])) {
             exit(0);
         }
     }
+} 
+if (isset($_POST["temoignage"])) {
+
+    $nom = mysqli_real_escape_string($con, $_POST['nom']);
+    $email = mysqli_real_escape_string($con, $_POST['email']);
+    $message = mysqli_real_escape_string($con, $_POST['message']);
+
+
+    // Vérifier si un fichier a été envoyé
+    if (empty($_FILES['photo']['name'])) {
+        $_SESSION['toastr'] = ['type' => 'error', 'message' => 'Veuillez choisir une Photo'];
+        header("Location: testimonials.php");
+        exit;
+    }
+
+    $image = $_FILES['photo']['name'];
+    $image_tmp = $_FILES['photo']['tmp_name'];
+    $error = $_FILES['photo']['error'];
+
+    // Vérifier l’erreur d’upload
+    if ($error !== UPLOAD_ERR_OK) {
+        $_SESSION['toastr'] = ['type' => 'error', 'message' => 'Erreur lors de l\'upload de l\'image (code : ' . $error . ').'];
+        header("Location: testimonials.php");
+        exit;
+    }
+
+    // Extension autorisée
+    $allowed_extensions = ['jpg', 'jpeg', 'png', 'gif'];
+    $file_extension = strtolower(pathinfo($image, PATHINFO_EXTENSION));
+
+    if (!in_array($file_extension, $allowed_extensions)) {
+        $_SESSION['toastr'] = ['type' => 'error', 'message' => 'Format d\'image non valide.'];
+        header("Location: testimonials.php");
+        exit;
+    }
+
+    // Dossier de destination
+    $upload_dir = 'admin/uploads/testimonials/';
+
+    if (!is_dir($upload_dir)) {
+        mkdir($upload_dir, 0777, true);
+    }
+
+    // Nouveau nom unique pour éviter les collisions
+    $new_name = uniqid('temoin_') . '.' . $file_extension;
+    $upload_path = $upload_dir . $new_name;
+
+    //Insertion dans la base de données
+    $stmt = $con->prepare("INSERT INTO testimonials (name,email,message,photo) VALUES (?, ?, ?, ?)");
+    $stmt->bind_param("ssss", $nom, $email, $message, $new_name);
+    if ($stmt->execute()) {
+
+        // Si l’INSERT est OK, on déplace le fichier
+        if (move_uploaded_file($image_tmp, $upload_path)) {
+            $_SESSION['toastr'] = ['type' => 'success', 'message' => 'enregistré reussi avec succès.'];
+        } else {
+            $_SESSION['toastr'] = ['type' => 'error', 'message' => 'Enregistrement OK, mais échec de l\'upload de l\'image.'];
+        }
+        header("Location: index");
+        exit;
+    } else {
+        $_SESSION['toastr'] = ['type' => 'error', 'message' => 'Echec de d\enregistrement'];
+        header("Location: testimonials.php");
+        exit;
+    }
 }
+
+
 ?>

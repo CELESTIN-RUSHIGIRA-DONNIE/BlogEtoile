@@ -178,14 +178,8 @@
 .navbar-light .navbar-brand h1 {
     color: var(--bs-white);
 }
-.navbar-light .navbar-brand h3 {
-    color: var(--bs-white);
-}
 
 .sticky-top.navbar-light .navbar-brand h1 {
-    color: var(--bs-primary);
-}
-.sticky-top.navbar-light .navbar-brand h3 {
     color: var(--bs-primary);
 }
 
@@ -902,7 +896,7 @@
 
 /*** Tour Booking Start ***/
 .booking {
-    background: linear-gradient(rgba(19, 53, 123, .8), rgba(19, 53, 123, .8)), url(../img/tour-booking-bg.jpg);
+    background: linear-gradient(rgba(19, 53, 123, .8), rgba(19, 53, 123, .8)), url(../img/chantres.jpg);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;

@@ -104,7 +104,7 @@
                         <div class="dropdown-menu m-0">
                             <a href="categorie.php" class="dropdown-item">Categorie</a>
                             <a href="galerie.php" class="dropdown-item">Galery</a>
-                            <a href="booking.html" class="dropdown-item">Travel Booking</a>
+                            <a href="testimonials.php" class="dropdown-item">Temoignage</a>
                             <a href="gallery.html" class="dropdown-item">Our Gallery</a>
                             <a href="guides.html" class="dropdown-item">Travel Guides</a>
                             <a href="testimonial.html" class="dropdown-item">Testimonial</a>
