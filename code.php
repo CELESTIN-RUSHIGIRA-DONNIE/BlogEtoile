@@ -4,6 +4,15 @@ ini_set("display_errors", 1);
 session_start();
 include("admin/conf/db.php");
 
+// Charger les classes PHPMailer
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+require __DIR__ . '/PHPMailer/src/Exception.php';
+require __DIR__ . '/PHPMailer/src/PHPMailer.php';
+require __DIR__ . '/PHPMailer/src/SMTP.php';
+
 if (isset($_POST['register'])) {
     $email = mysqli_real_escape_string($con, $_POST['email']);
     $password = mysqli_real_escape_string($con, $_POST['password']);
@@ -127,7 +136,7 @@ if (isset($_POST['register'])) {
             exit(0);
         }
     }
-} 
+}
 if (isset($_POST["temoignage"])) {
 
     $nom = mysqli_real_escape_string($con, $_POST['nom']);
@@ -181,14 +190,50 @@ if (isset($_POST["temoignage"])) {
 
         // Si l’INSERT est OK, on déplace le fichier
         if (move_uploaded_file($image_tmp, $upload_path)) {
-            $_SESSION['toastr'] = ['type' => 'success', 'message' => 'enregistré reussi avec succès.'];
+            $mail = new PHPMailer(true);
+            try {
+                // Configuration SMTP (adaptez à votre hébergeur)
+                $mail->isSMTP();
+                $mail->Host = 'smtp.gmail.com';  // Gmail, OVH, etc.
+                $mail->SMTPAuth = true;
+                $mail->Username = 'etoiledelouangeuea01@gmail.com';  // ✅ VOTRE EMAIL
+                $mail->Password = 'gkqhahtvfwvwwsyk';  // Mot de passe APP
+                $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+                $mail->Port = 587;
+
+                // Destinataire(s)
+                $mail->setFrom('etoiledelouangeuea01@gmail.com', 'Etoile de Louange UEA');  // ✅ VOTRE EMAIL
+                $mail->addAddress('celestinrushigiradonnie@gmail.com');  // ✅ VOTRE EMAIL ADMIN
+
+                // Contenu email
+                $mail->isHTML(true);
+                $mail->Subject = '🆕 Nouveau témoignage reçu !';
+                $mail->Body = "
+                    <h2>Nouveau témoignage en attente de validation</h2>
+                    <p><strong>👤 Nom:</strong> $nom</p>
+                    <p><strong>📧 Email:</strong> $email</p>
+                    <p><strong>💬 Message:</strong><br>$message</p>
+                    <p><strong>🖼️ Photo:</strong> <a href='http://votre-site.com/$upload_path'>Voir la photo</a></p>
+                    <hr>
+                    <p><em>À valider dans l'admin → admin/testimonials/</em></p>
+                ";
+
+                $mail->send();
+                error_log("✅ Email notification envoyé pour $new_name");
+
+            } catch (Exception $e) {
+                error_log("❌ Email échoué: {$mail->ErrorInfo}");  // Log seulement
+            }
+
+            $_SESSION['toastr'] = ['type' => 'success', 'message' => '✅ Témoignage enregistré et notifié !'];
+
         } else {
             $_SESSION['toastr'] = ['type' => 'error', 'message' => 'Enregistrement OK, mais échec de l\'upload de l\'image.'];
         }
-        header("Location: index");
+        header("Location: index");  // ou index.php
         exit;
     } else {
-        $_SESSION['toastr'] = ['type' => 'error', 'message' => 'Echec de d\enregistrement'];
+        $_SESSION['toastr'] = ['type' => 'error', 'message' => 'Echec de l\'enregistrement en base.'];
         header("Location: testimonials.php");
         exit;
     }

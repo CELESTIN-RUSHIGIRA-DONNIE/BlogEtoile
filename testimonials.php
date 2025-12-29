@@ -140,100 +140,42 @@
                 <!-- <p class="mb-0">Voici nos ancien(ne)s Membres qui ont marqué histoire de notre chorale</p> -->
             </div>
             <div class="testimonial-carousel owl-carousel">
-                <div class="testimonial-item text-center rounded pb-4">
-                    <div class="testimonial-comment bg-light rounded p-4">
-                        <p class="text-center mb-5">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis
-                            nostrum cupiditate, eligendi repellendus saepe illum earum architecto dicta quisquam quasi
-                            porro officiis. Vero reiciendis,
-                        </p>
-                    </div>
-                    <div class="testimonial-img p-1">
-                        <img src="img/testimonial-1.jpg" class="img-fluid rounded-circle" alt="Image">
-                    </div>
-                    <div style="margin-top: -35px;">
-                        <h5 class="mb-0">John Abraham</h5>
-                        <p class="mb-0">New York, USA</p>
-                        <div class="d-flex justify-content-center">
-                            <i class="fas fa-star text-primary"></i>
-                            <i class="fas fa-star text-primary"></i>
-                            <i class="fas fa-star text-primary"></i>
-                            <i class="fas fa-star text-primary"></i>
-                            <i class="fas fa-star text-primary"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-item text-center rounded pb-4">
-                    <div class="testimonial-comment bg-light rounded p-4">
-                        <p class="text-center mb-5">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis
-                            nostrum cupiditate, eligendi repellendus saepe illum earum architecto dicta quisquam quasi
-                            porro officiis. Vero reiciendis,
-                        </p>
-                    </div>
-                    <div class="testimonial-img p-1">
-                        <img src="img/testimonial-2.jpg" class="img-fluid rounded-circle" alt="Image">
-                    </div>
-                    <div style="margin-top: -35px;">
-                        <h5 class="mb-0">John Abraham</h5>
-                        <p class="mb-0">New York, USA</p>
-                        <div class="d-flex justify-content-center">
-                            <i class="fas fa-star text-primary"></i>
-                            <i class="fas fa-star text-primary"></i>
-                            <i class="fas fa-star text-primary"></i>
-                            <i class="fas fa-star text-primary"></i>
-                            <i class="fas fa-star text-primary"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-item text-center rounded pb-4">
-                    <div class="testimonial-comment bg-light rounded p-4">
-                        <p class="text-center mb-5">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis
-                            nostrum cupiditate, eligendi repellendus saepe illum earum architecto dicta quisquam quasi
-                            porro officiis. Vero reiciendis,
-                        </p>
-                    </div>
-                    <div class="testimonial-img p-1">
-                        <img src="img/testimonial-3.jpg" class="img-fluid rounded-circle" alt="Image">
-                    </div>
-                    <div style="margin-top: -35px;">
-                        <h5 class="mb-0">John Abraham</h5>
-                        <p class="mb-0">New York, USA</p>
-                        <div class="d-flex justify-content-center">
-                            <i class="fas fa-star text-primary"></i>
-                            <i class="fas fa-star text-primary"></i>
-                            <i class="fas fa-star text-primary"></i>
-                            <i class="fas fa-star text-primary"></i>
-                            <i class="fas fa-star text-primary"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-item text-center rounded pb-4">
-                    <div class="testimonial-comment bg-light rounded p-4">
-                        <p class="text-center mb-5">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis
-                            nostrum cupiditate, eligendi repellendus saepe illum earum architecto dicta quisquam quasi
-                            porro officiis. Vero reiciendis,
-                        </p>
-                    </div>
-                    <div class="testimonial-img p-1">
-                        <img src="img/testimonial-4.jpg" class="img-fluid rounded-circle" alt="Image">
-                    </div>
-                    <div style="margin-top: -35px;">
-                        <h5 class="mb-0">John Abraham</h5>
-                        <p class="mb-0">New York, USA</p>
-                        <div class="d-flex justify-content-center">
-                            <i class="fas fa-star text-primary"></i>
-                            <i class="fas fa-star text-primary"></i>
-                            <i class="fas fa-star text-primary"></i>
-                            <i class="fas fa-star text-primary"></i>
-                            <i class="fas fa-star text-primary"></i>
-                        </div>
-                    </div>
-                </div>
+                <?php
+                $homeCategory = "SELECT * FROM testimonials WHERE status='1'";
+                $homeCategory_run = mysqli_query($con, $homeCategory);
+                if (mysqli_num_rows($homeCategory_run) > 0) {
+                    foreach ($homeCategory_run as $homeItems) {
+                        ?>
+                            <div class="testimonial-item text-center rounded pb-4">
+                                <div class="testimonial-comment bg-light rounded p-4">
+                                    <p class="text-center mb-5"><?= $homeItems['message']; ?>
+                                    </p>
+                                </div>
+                                <div class="testimonial-img p-1">
+                                    <img src="admin/uploads/testimonials/<?= $homeItems['photo'] ?>" class="img-fluid rounded-circle" alt="Image">
+                                </div>
+                                <div style="margin-top: -35px;">
+                                    <h5 class="mb-0"><?= $homeItems['name'] ?></h5>
+                                    <p class="mb-0"><?= $homeItems['email'] ?></p>
+                                    <div class="d-flex justify-content-center">
+                                        <i class="fas fa-star text-primary"></i>
+                                        <i class="fas fa-star text-primary"></i>
+                                        <i class="fas fa-star text-primary"></i>
+                                        <i class="fas fa-star text-primary"></i>
+                                        <i class="fas fa-star text-primary"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php
+                    }
+                }
+                ?>
             </div>
         </div>
     </div>
     <!-- Testimonial End -->
 
-    <!-- Tour Booking Start -->
+    <!-- Add Temoignage Start -->
     <div class="container-fluid booking">
         <div class="container py-5">
             <div class="row g-5 align-items-center">
@@ -257,32 +199,33 @@
                             <div class="col-md-6">
                                 <div class="form-floating">
                                     <input type="text" class="form-control bg-white border-0" id="name"
-                                        placeholder="Votre Noms" name="nom">
+                                        placeholder="Votre Noms" name="nom" required>
                                     <label for="name">Votre Name</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
                                     <input type="email" class="form-control bg-white border-0" id="email"
-                                        placeholder="Votre Email" name="email">
+                                        placeholder="Votre Email" name="email" required>
                                     <label for="email">Votre Email</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <textarea class="form-control bg-white border-0" name="message" placeholder="Votre Temoignage"
-                                    id="message" style="height: 100px"></textarea>
+                                    <textarea class="form-control bg-white border-0" maxlength="200" name="message"
+                                        placeholder="Votre Temoignage" id="message" style="height: 100px" required ></textarea>
                                     <label for="message">Votre Temoignage</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <label class="text-white">Votre Photo</label>
                                 <div class="form-floating">
-                                    <input type="file" name="photo" class="dropify" data-default-file="">
+                                    <input type="file" required name="photo" class="dropify" data-default-file="">
                                 </div>
                             </div>
                             <div class="col-12">
-                                <button class="btn btn-primary text-white w-100 py-3" name="temoignage" type="submit">Envoyer</button>
+                                <button class="btn btn-primary text-white w-100 py-3" name="temoignage"
+                                    type="submit">Envoyer</button>
                             </div>
                         </div>
                     </form>

@@ -141,12 +141,12 @@
                     <ul class="nav nav-pills d-inline-flex justify-content-center mb-5">
                         <li class="nav-item">
                             <a class="d-flex mx-3 py-2 border border-primary bg-light rounded-pill active" data-bs-toggle="pill" href="#tab-1">
-                                <span class="text-dark" style="width: 150px;">All</span>
+                                <span class="text-dark" style="width: 150px;">Photo</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="d-flex py-2 mx-3 border border-primary bg-light rounded-pill" data-bs-toggle="pill" href="#tab-2">
-                                <span class="text-dark" style="width: 150px;">USA</span>
+                                <span class="text-dark" style="width: 150px;">Video</span>
                             </a>
                         </li>
                     </ul>
@@ -265,28 +265,20 @@
                             <div class="row g-4">
                                 <div class="col-lg-6">
                                     <div class="destination-img">
-                                        <img class="img-fluid rounded w-100" src="img/etoile-5.jpg" alt="">
-                                        <div class="destination-overlay p-4">
-                                            <a href="#" class="btn btn-primary text-white rounded-pill border py-2 px-3">20 Photos</a>
-                                            <h4 class="text-white mb-2 mt-3">Etoile De Louange</h4>
-                                            <a href="#" class="btn-hover text-white"><i class="fa fa-arrow-right ms-2"></i></a>
-                                        </div>
-                                        <div class="search-icon">
-                                            <a href="img/etoile-5.jpg" data-lightbox="destination-5"><i class="fa fa-plus-square fa-1x btn btn-light btn-lg-square text-primary"></i></a>
-                                        </div>
+                                        <!-- <img class="img-fluid rounded w-100" src="img/etoile-5.jpg" alt=""> -->
+                                        <video class="img-fluid rounded w-100" controls>
+                                            <source src="img/JE T'AIME SEIGNEUR.mp4" type="video/mp4">
+                                            Your browser does not support the video tag.
+                                        </video>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="destination-img">
-                                        <img class="img-fluid rounded w-100" src="img/destination-6.jpg" alt="">
-                                        <div class="destination-overlay p-4">
-                                            <a href="#" class="btn btn-primary text-white rounded-pill border py-2 px-3">20 Photos</a>
-                                            <h4 class="text-white mb-2 mt-3">San francisco</h4>
-                                            <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
-                                        </div>
-                                        <div class="search-icon">
-                                            <a href="img/destination-6.jpg" data-lightbox="destination-6"><i class="fa fa-plus-square fa-1x btn btn-light btn-lg-square text-primary"></i></a>
-                                        </div>
+                                        <!-- <img class="img-fluid rounded w-100" src="img/etoile-7.jpg" alt=""> -->
+                                        <video class="img-fluid rounded w-100" controls>
+                                            <source src="img/Mwaminifu_chorale Étoile de Louange.mp4" type="video/mp4">
+                                            Your browser does not support the video tag.
+                                        </video>
                                     </div>
                                 </div>
                             </div>

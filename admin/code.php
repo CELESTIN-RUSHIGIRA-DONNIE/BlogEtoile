@@ -286,7 +286,7 @@ if (isset($_POST["save_membre"])) {
         header("Location: edit-members.php?id=$membre_id");
         exit;
     }
-}else if (isset($_POST['edit_category'])) {
+} else if (isset($_POST['edit_category'])) {
     $categorie_id = mysqli_real_escape_string($con, $_POST['categorie_id']);
     $name = mysqli_real_escape_string($con, $_POST['name']);
 
@@ -313,7 +313,7 @@ if (isset($_POST["save_membre"])) {
         header("Location: edit-categorie.php?id=$categorie_id");
         exit;
     }
-}else if(isset($_POST['edit_post'])) {
+} else if (isset($_POST['edit_post'])) {
     $post_id = mysqli_real_escape_string($con, $_POST['post_id']);
     $category_id = mysqli_real_escape_string($con, $_POST['category_id']);
     $name = mysqli_real_escape_string($con, $_POST['name']);
@@ -388,25 +388,25 @@ if (isset($_POST["save_membre"])) {
         header("Location: edit-post.php?id=$post_id");
         exit;
     }
-}else if (isset($_POST['send_newsletter'])) {
-    
+} else if (isset($_POST['send_newsletter'])) {
+
     $subject = $_POST['subject'];
     $message = $_POST['message'];
 
     // Récupérer les abonnés
     $sql = "SELECT email FROM subscribers WHERE status = 'active'";
     $res = $con->query($sql);
-    
+
     $mail = new PHPMailer(true);
-    
+
     // Configuration SMTP (Gmail exemple)
     $mail->isSMTP();
-    $mail->Host       = 'smtp.gmail.com';
-    $mail->SMTPAuth   = true;
-    $mail->Username   = 'etoiledelouangeuea01@gmail.com';  // ← TON EMAIL
-    $mail->Password   = 'gkqhahtvfwvwwsyk';        // ← MOT DE PASSE APP
+    $mail->Host = 'smtp.gmail.com';
+    $mail->SMTPAuth = true;
+    $mail->Username = 'etoiledelouangeuea01@gmail.com';  // ← TON EMAIL
+    $mail->Password = 'gkqhahtvfwvwwsyk';        // ← MOT DE PASSE APP
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-    $mail->Port       = 587;
+    $mail->Port = 587;
 
     $mail->setFrom('etoiledelouangeuea01@gmail.com', 'Etoile de Louange UEA'); // ← TON EMAIL
     $mail->isHTML(true);
@@ -417,10 +417,10 @@ if (isset($_POST["save_membre"])) {
     while ($row = $res->fetch_assoc()) {
         $mail->clearAddresses();
         $mail->addAddress($row['email']);
-        
+
         $mail->Subject = $subject;
-        $mail->Body    = $message . '<br><br><small>Etoile de Louange UEA</small>';
-        
+        $mail->Body = $message . '<br><br><small>Etoile de Louange UEA</small>';
+
         try {
             $mail->send();
             $ok++;
@@ -432,4 +432,34 @@ if (isset($_POST["save_membre"])) {
     $_SESSION['msg'] = "$ok / $total emails envoyés avec succès !";
     header("Location: newsletter.php");
     exit;
+} else if (isset($_POST['validation_testimonials'])) {
+    $temoignage_id = mysqli_real_escape_string($con, $_POST['validation_testimonials']);
+
+    $update_query = "UPDATE testimonials SET status='1' WHERE id='$temoignage_id' ";
+    $update_query_run = mysqli_query($con, $update_query);
+
+    if ($update_query_run) {
+        $_SESSION['toastr'] = ['type' => 'success', 'message' => 'Temoignage validé avec succès.'];
+        header("Location: testimonials-valid");
+        exit;
+    } else {
+        $_SESSION['toastr'] = ['type' => 'error', 'message' => 'Échec de la validation du temoignage.'];
+        header("Location: testimonials");
+        exit;
+    }
+} else if (isset($_POST['delete_testimonials'])) {
+    $temoignage_id = mysqli_real_escape_string($con, $_POST['delete_testimonials']);
+
+    $update_query = "UPDATE testimonials SET status='3' WHERE id='$temoignage_id' ";
+    $update_query_run = mysqli_query($con, $update_query);
+
+    if ($update_query_run) {
+        $_SESSION['toastr'] = ['type' => 'success', 'message' => 'Temoignage rejeté avec succès.'];
+        header("Location: testimonials");
+        exit;
+    } else {
+        $_SESSION['toastr'] = ['type' => 'error', 'message' => 'Échec du rejet du temoignage.'];
+        header("Location: testimonials");
+        exit;
+    }
 }
