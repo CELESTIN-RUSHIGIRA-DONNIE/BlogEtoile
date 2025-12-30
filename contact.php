@@ -27,6 +27,8 @@
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
+    <link rel="stylesheet" href="css/toastr.min.css">
+
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
 </head>
@@ -103,13 +105,11 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Plus</a>
                         <div class="dropdown-menu m-0">
-                            <a href="categorie.php" class="dropdown-item">Categorie</a>
-                            <a href="galerie.php" class="dropdown-item">Galery</a>
-                            <a href="testimonials.php" class="dropdown-item">Temoignage</a>
-                            <a href="gallery.html" class="dropdown-item">Our Gallery</a>
-                            <a href="guides.html" class="dropdown-item">Travel Guides</a>
-                            <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                            <a href="404.html" class="dropdown-item">404 Page</a>
+                            <a href="categorie" class="dropdown-item">Categorie</a>
+                            <a href="galerie" class="dropdown-item">Galery</a>
+                            <a href="testimonials" class="dropdown-item">Temoignage</a>
+                            <a href="login" class="dropdown-item">Login</a>
+                            <a href="register" class="dropdown-item">Register</a>
                         </div>
                     </div>
                     <a href="contact.html" class="nav-item nav-link active">Contact</a>
@@ -226,11 +226,11 @@
                 </div>
                 <div class="col-md-6 col-lg-6 col-xl-3">
                     <div class="footer-item d-flex flex-column">
-                        <h4 class="mb-4 text-white">Entreprise</h4>
-                        <a href=""><i class="fas fa-angle-right me-2"></i> About</a>
-                        <a href=""><i class="fas fa-angle-right me-2"></i> Careers</a>
-                        <a href=""><i class="fas fa-angle-right me-2"></i> Blog</a>
-                        <a href=""><i class="fas fa-angle-right me-2"></i> Press</a>
+                        <h4 class="mb-4 text-white">Suivez nous sur</h4>
+                        <a href="https://www.facebook.com/share/1G6g6YW1Xu/?mibextid=wwXIfr"><i class="fab fa-facebook me-2"></i>Facebook</a>
+                        <a href="https://www.tiktok.com/@etoiledelouangeuea?lang=en"><i class="fab fa-tiktok me-2"></i> TikTok</a>
+                        <a href="#"><i class="fab fa-instagram me-2"></i> Instagram</a>
+                        <a href="https://www.youtube.com/@etoiledelouangeUEA"><i class="fab fa-youtube me-2"></i> YouTube</a>
                     </div>
                 </div>
                 <div class="col-md-12 col-lg-12 col-xl-6">
@@ -278,6 +278,16 @@
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="lib/lightbox/js/lightbox.min.js"></script>
 
+        <!-- Toastr -->
+    <script src="js/toastr.min.js"></script>
+
+    <!-- All init script -->
+    <script src="js/toastr-init.js"></script>
+    <script>
+        <?php if (!empty($toast)): ?>
+            toastr.<?php echo $toast['type']; ?>("<?php echo addslashes($toast['message']); ?>");
+        <?php endif; ?>
+    </script>
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>

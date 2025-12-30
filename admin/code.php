@@ -462,4 +462,63 @@ if (isset($_POST["save_membre"])) {
         header("Location: testimonials");
         exit;
     }
-}
+} else if (isset($_POST['edit_file'])) {
+    $fichier_id = mysqli_real_escape_string($con, $_POST['fichier_id']);
+    $nom_fichier = mysqli_real_escape_string($con, $_POST['nom_fichier']);
+    $type = mysqli_real_escape_string($con, $_POST['type']);
+    $statut = mysqli_real_escape_string($con, $_POST['statut']);
+    $description = mysqli_real_escape_string($con, $_POST['description']);
+
+    // Récupérer l'ancien chemin depuis la BD (utile pour la supprimer)
+    $old_chemin = '';
+    $select_fichier = mysqli_query($con, "SELECT chemin FROM fichiers WHERE id='$fichier_id' LIMIT 1");
+    if ($select_fichier && mysqli_num_rows($select_fichier) > 0) {
+        $row_fichier = mysqli_fetch_assoc($select_fichier);
+        $old_chemin = $row_fichier['chemin'];
+    }
+
+    // Gestion du fichier
+    $chemin_in_db = $old_chemin; // par défaut on garde l'ancien
+
+    if (isset($_FILES['fichier']) && $_FILES['fichier']['error'] == 0) {
+
+        $file_name = $_FILES['fichier']['name'];
+        $file_tmp = $_FILES['fichier']['tmp_name'];
+
+        // Dossier de destination
+        $upload_dir = 'uploads/' . $type . '/';
+
+        // Créer le dossier si n'existe pas
+        if (!is_dir($upload_dir)) {
+            mkdir($upload_dir, 0777, true);
+        }
+
+        // Nouveau nom unique
+        $new_name = uniqid('file_') . '_' . basename($file_name);
+        $upload_path = $upload_dir . $new_name;
+
+        // Déplacer le fichier
+        if (move_uploaded_file($file_tmp, $upload_path)) {
+
+            // Supprimer l'ancien fichier si il existe
+            if (!empty($old_chemin) && file_exists($old_chemin)) {
+                unlink($old_chemin);
+            }
+
+            // Chemin à enregistrer en BD
+            $chemin_in_db = $upload_path;
+        }
+    }
+
+    $update_query = "UPDATE fichiers SET nom_fichier='$nom_fichier', type='$type', description='$description', chemin='$chemin_in_db', statut='$statut' WHERE id='$fichier_id' ";
+    $update_query_run = mysqli_query($con, $update_query);
+    if ($update_query_run) {
+        $_SESSION['toastr'] = ['type' => 'success', 'message' => 'Fichier mis à jour avec succès.'];
+        header("Location: list-upload.php");
+        exit;
+    } else {
+        $_SESSION['toastr'] = ['type' => 'error', 'message' => 'Échec de la mise à jour du fichier.'];
+        header("Location: edit-upload.php?id=$fichier_id");
+        exit;
+    }
+} 

@@ -22,6 +22,7 @@
         <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
         <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
 
+        <link rel="stylesheet" href="css/toastr.min.css">
 
         <!-- Customized Bootstrap Stylesheet -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -119,14 +120,14 @@
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-6 col-xl-3">
-                        <div class="footer-item d-flex flex-column">
-                            <h4 class="mb-4 text-white">Entreprise</h4>
-                            <a href=""><i class="fas fa-angle-right me-2"></i> About</a>
-                            <a href=""><i class="fas fa-angle-right me-2"></i> Careers</a>
-                            <a href=""><i class="fas fa-angle-right me-2"></i> Blog</a>
-                            <a href=""><i class="fas fa-angle-right me-2"></i> Press</a>
-                        </div>
+                    <div class="footer-item d-flex flex-column">
+                        <h4 class="mb-4 text-white">Suivez nous sur</h4>
+                        <a href="https://www.facebook.com/share/1G6g6YW1Xu/?mibextid=wwXIfr"><i class="fab fa-facebook me-2"></i>Facebook</a>
+                        <a href="https://www.tiktok.com/@etoiledelouangeuea?lang=en"><i class="fab fa-tiktok me-2"></i> TikTok</a>
+                        <a href="#"><i class="fab fa-instagram me-2"></i> Instagram</a>
+                        <a href="https://www.youtube.com/@etoiledelouangeUEA"><i class="fab fa-youtube me-2"></i> YouTube</a>
                     </div>
+                </div>
                     <div class="col-md-12 col-lg-12 col-xl-6">
                         <div class="rounded">
                             <iframe class="rounded w-100" style="height: 200px;" src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d1504.3828692494042!2d28.85994941018481!3d-2.540094786037498!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1simani%20Panzi!5e1!3m2!1sfr!2scd!4v1766816733106!5m2!1sfr!2scd" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -166,7 +167,16 @@
         <script src="lib/owlcarousel/owl.carousel.min.js"></script>
         <script src="lib/lightbox/js/lightbox.min.js"></script>
         
+            <!-- Toastr -->
+    <script src="js/toastr.min.js"></script>
 
+    <!-- All init script -->
+    <script src="js/toastr-init.js"></script>
+    <script>
+        <?php if (!empty($toast)): ?>
+            toastr.<?php echo $toast['type']; ?>("<?php echo addslashes($toast['message']); ?>");
+        <?php endif; ?>
+    </script>
         <!-- Template Javascript -->
         <script src="js/main.js"></script>
     </body>

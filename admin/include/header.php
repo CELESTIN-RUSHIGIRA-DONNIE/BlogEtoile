@@ -18,7 +18,7 @@ include('conf/db.php');
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Blog Etoile</title>
 
-    <!-- <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png"> -->
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
 
     <link rel="stylesheet" href="assets/vendor/chartist/css/chartist.min.css">
     <link rel="stylesheet" href="assets/vendor/toastr/css/toastr.min.css">
@@ -45,10 +45,10 @@ include('conf/db.php');
     <div id="main-wrapper">
 
         <div class="nav-header">
-            <a href="index.html" class="brand-logo">
-                <img class="logo-abbr" src="assets/images/logo-white.png" alt="">
-                <img class="logo-compact" src="assets/images/Log_etoile.png" alt="">
-                <img class="brand-title" src="assets/images/Log_etoile-white.png" alt="">
+            <a href="index" class="brand-logo">
+                <img class="logo-abbr" src="assets/images/logo-etoile.png" alt="">
+                <img class="logo-compact" src="assets/images/logo_text-white.png" alt="">
+                <img class="brand-title" src="assets/images/logo_text-white.png" alt="">
             </a>
 
             <div class="nav-control">
@@ -146,11 +146,18 @@ include('conf/db.php');
                                 </div>
                             </li>
                             <li class="nav-item dropdown header-profile">
+                                <a><?= $_SESSION['auth_user']['nom'] . ' ' . $_SESSION['auth_user']['postnom'] ?></a>
+                                <?php
+                                // Vérifie si une image est définie pour l'utilisateur connecté
+                                $user_image = !empty($_SESSION['auth_user']['profile'])
+                                    ? 'uploads/' . $_SESSION['auth_user']['profile']   // Chemin vers la photo uploadée
+                                    : 'assets/images/default.jpg';             // Image par défaut
+                                ?>
                                 <a class="nav-link" href="#" role="button" data-toggle="dropdown">
-                                    <img src="assets/images/profile/pic1.jpg" width="20" alt="">
+                                    <img src="<?= htmlspecialchars($user_image); ?>" width="20" alt="">
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
-                                    <a href="app-profile.html" class="dropdown-item ai-icon">
+                                    <a href="#" class="dropdown-item ai-icon">
                                         <svg id="icon-user1" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                                             viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                             stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">
@@ -159,7 +166,7 @@ include('conf/db.php');
                                         </svg>
                                         <span class="ml-2">Profile </span>
                                     </a>
-                                    <a href="email-inbox.html" class="dropdown-item ai-icon">
+                                    <a href="#" class="dropdown-item ai-icon">
                                         <svg id="icon-inbox" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                                             viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                             stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail">
@@ -247,7 +254,7 @@ include('conf/db.php');
                         </a>
                         <ul aria-expanded="false">
                             <li><a href="upload.php">uploads</a></li>
-                            <li><a href="list-upload.php">Archive</a></li>
+                            <li><a href="list-upload">Archive</a></li>
                             <!-- <li><a href="list-subscribers.php">Abonnés</a></li>
                             <li><a href="list-post.php">Liste Posts</a></li> -->
                         </ul>

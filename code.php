@@ -26,14 +26,14 @@ if (isset($_POST['register'])) {
         $stmt->bind_result($password_db);
         if ($stmt->fetch()) {
             if (!empty($password_db)) {
-                $_SESSION['message'] = "Un compte existe déjà pour ce mail.";
-                header('Location: register.php');
-                exit(0);
+                $_SESSION['toastr'] = ['type' => 'error', 'message' => 'Un compte avec cet email existe déjà.'];
+                header("Location: register");
+                exit;
             }
         } else {
-            $_SESSION['message'] = "Le Mail est invalide.";
-            header('Location: register.php');
-            exit(0);
+            $_SESSION['toastr'] = ['type' => 'error', 'message' => 'Votre email n\'est pas autorisé à s\'inscrire.'];
+            header("Location: register");
+            exit;
         }
         $stmt->close();
 
@@ -42,17 +42,17 @@ if (isset($_POST['register'])) {
         $stmt = $con->prepare("UPDATE membres SET password = ? WHERE email = ?");
         $stmt->bind_param("ss", $passwordHash, $email);
         if ($stmt->execute()) {
-            $_SESSION['message'] = "Inscription réussie";
-            header('Location: login.php');
+            $_SESSION['toastr'] = ['type' => 'success', 'message' => 'Compte créé avec succès.'];
+            header('Location: login');
             exit(0);
         } else {
-            $_SESSION['message'] = "Erreur lors de la création du compte";
-            header('Location: register.php');
+            $_SESSION['toastr'] = ['type' => 'error', 'message' => 'Erreur lors de la création du compte. Veuillez réessayer.'];
+            header('Location: register');
             exit(0);
         }
     } else {
-        $_SESSION['message'] = "Les mots de passe ne correspondent pas";
-        header('Location: register.php');
+        $_SESSION['toastr'] = ['type' => 'error', 'message' => 'Les mots de passe ne correspondent pas'];
+        header('Location: register');
         exit(0);
     }
 } else if (isset($_POST['login'])) {
@@ -102,15 +102,15 @@ if (isset($_POST['register'])) {
             exit(0);
 
         } else {
-            $_SESSION['message'] = "Mot de passe incorrect";
-            header("Location: login.php");
-            exit(0);
+            $_SESSION['toastr'] = ['type' => 'error', 'message' => 'Mot de passe incorrect'];
+            header("Location: login");
+            exit;
         }
 
-    } else {
-        $_SESSION['message'] = "Matricule introuvable";
-        header("Location: login.php");
-        exit(0);
+    } else{
+        $_SESSION['toastr'] = ['type' => 'error', 'message' => 'Aucun compte trouvé avec cet email'];
+        header("Location: login");
+        exit;
     }
 } else if (isset($_POST['subscribe'])) {
     $email = mysqli_real_escape_string($con, $_POST['email']);
