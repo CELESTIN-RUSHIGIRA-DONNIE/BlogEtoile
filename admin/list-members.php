@@ -23,6 +23,7 @@
                 <div class="card">
                     <div class="card-header">
                         <h4 class="card-title"><strong>Liste de Membres</strong></h4>
+                        <a href="liste_chantre" class="btn btn-primary"><i class="fa fa-print"></i></a>
                         <a href="add-members.php" class="btn btn-primary">+ Ajouter</a>
                     </div>
                     <div class="card-body">

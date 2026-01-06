@@ -148,37 +148,22 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-8">
-                        <h3 class="text-dark">Nos Categories</h3>
+                        <h3 class="text-dark">Programme de répétition</h3>
                         <div class="underline"></div>
-                        <?php
-                        $homePosts = "SELECT * FROM categories";
-                        $homePosts_run = mysqli_query($con, $homePosts);
-                        if (mysqli_num_rows($homePosts_run) > 0) {
-                            foreach ($homePosts_run as $homePostItems) {
-                                ?>
-                                <div class="mb-4">
-                                    <a class="text-decoration-none" href="catpost.php?name=<?= $homePostItems['slug']; ?>">
-
-                                        <div class="card card-body bg-light">
-                                            <?= $homePostItems['name']; ?>
-                                        </div>
-                                    </a>
-                                </div>
-                                <?php
-                            }
-                        }
-                        ?>
+                        <div class="footer-item d-flex flex-column">
+                            <p><i class="fas fa-angle-right me-5"></i>Mardi : 15h30 - 17h00</p>
+                            <p><i class="fas fa-angle-right me-5"></i>Samedi : 15h30 - 17h00</p>
+                            <p><i class="fas fa-angle-right me-5"></i>Instagram</p>
+                            <p><i class="fas fa-angle-right me-5"></i>YouTube</p>
+                        </div>
                     </div>
                     <div class="col-md-4">
 
 
-                        <h3>Programme de répétition</h3>
+                        <h3>Contactez-nous !</h3>
                         <div class="underline"></div>
 
-                        <div class="footer-item d-flex flex-column">
-                            <p><i class="fas fa-angle-right me-5"></i>Mardi : 15h30 - 17h00</p>
-                            <p><i class="fas fa-angle-right me-5"></i>Samedi : 15h30 - 17h00</p>
-                        </div>
+                        <a href="contact.php">etoiledelouangeuea01@gmail.com</a>
 
 
                     </div>
